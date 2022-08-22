@@ -1,6 +1,7 @@
 package com.alfa;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,7 +23,10 @@ public class LoginTest {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
         driver.findElement(By.xpath("//input[@inputmode='numeric']")).sendKeys("11111");
 
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("replenishment")));
+        Assertions.assertEquals(driver.findElement(By.id("replenishment")).isDisplayed(), true);
         driver.quit();
+
 
     }
 }
