@@ -28,7 +28,7 @@ public class AuthorizeTest {
 
     @BeforeEach
      void setupBrowser (){
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
