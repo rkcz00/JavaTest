@@ -104,7 +104,7 @@ public class RegistrationFirmTest {
         driver.findElement(By.id("end-submit")).click();
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img")));
-        Assertions.assertEquals(driver.findElement(By.xpath("//img")).isDisplayed(), true);
+        Assertions.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
 
 
     }

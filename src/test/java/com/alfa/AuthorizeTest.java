@@ -28,7 +28,7 @@ public class AuthorizeTest {
 
     @BeforeEach
      void setupBrowser (){
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
@@ -36,7 +36,7 @@ public class AuthorizeTest {
 
     @Test
     @DisplayName("Проверка успешной авторизации в ЛК")
-    void AuthorizeToLk (){
+    void authorizeToLk (){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
         driver.findElement(By.id("login")).sendKeys("t_eq_d_nikonov");
         driver.findElement(By.id("password")).sendKeys("Test123");
@@ -47,6 +47,38 @@ public class AuthorizeTest {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("replenishment")));
         Assertions.assertEquals(driver.findElement(By.id("replenishment")).isDisplayed(), true);
 
+
+    }
+
+    @Test
+    @DisplayName("Проверка ввода некорректного пароля")
+    void incorrectPassword () {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+        driver.findElement(By.id("login")).sendKeys("t_eq_gedel_pm");
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
+        driver.findElement(By.id("password")).sendKeys("Test124");
+        for (int i = 0; i <=5 ; i++) {
+            driver.findElement(By.id("authorize")).click();
+        }
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img")));
+        Assertions.assertTrue(driver.findElement(By.xpath("//img")).isDisplayed());
+
+    }
+
+    @Test
+    @DisplayName("Проверка ввода некорректных смс")
+    void incorrectSms () {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+        driver.findElement(By.id("login")).sendKeys("t_eq_dtvlasov");
+        driver.findElement(By.id("password")).sendKeys("Test123");
+        driver.findElement(By.id("authorize")).click();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
+        for (int i = 0; i <=5 ; i++) {
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
+            driver.findElement(By.xpath("//input[@inputmode='numeric']")).sendKeys("11112");
+        }
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class = 'overlimit__title']")));
+        Assertions.assertTrue(driver.findElement(By.xpath("//span[@class = 'overlimit__title']")).isDisplayed());
 
     }
 
@@ -74,7 +106,7 @@ public class AuthorizeTest {
 
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("replenishment")));
-        Assertions.assertEquals(driver.findElement(By.id("replenishment")).isDisplayed(), true);
+        Assertions.assertTrue(driver.findElement(By.id("replenishment")).isDisplayed());
     }
 
     @AfterEach
