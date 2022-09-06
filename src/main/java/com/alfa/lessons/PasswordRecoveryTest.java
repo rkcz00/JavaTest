@@ -1,4 +1,4 @@
-package com.alfa;
+package com.alfa.lessons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
