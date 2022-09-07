@@ -1,6 +1,7 @@
 package com.alfa;
 
 
+import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -43,20 +44,25 @@ public class DepoTransfersInTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        driver.get(LK_TEST_URL);
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
-        driver.findElement(By.id("login")).sendKeys("t_eq_ezivankov"); //t_eq_vishniakov_ss t_eq_ezivankov t_eq_gshefimov
-        driver.findElement(By.id("password")).sendKeys("Test123");
-        driver.findElement(By.id("authorize")).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
-        driver.findElement(By.xpath("//input[@inputmode='numeric']")).sendKeys("11111");
-        Thread.sleep(4000);
-        if (isDisplayed()) {
-            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='modal__close']")));
-            driver.findElement(By.xpath("//button[@class='modal__close']")).click();
-        }
+//        driver.get(LK_TEST_URL);
+//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+//        driver.findElement(By.id("login")).sendKeys("t_eq_ezivankov"); //t_eq_vishniakov_ss t_eq_ezivankov t_eq_gshefimov
+//        driver.findElement(By.id("password")).sendKeys("Test123");
+//        driver.findElement(By.id("authorize")).click();
+//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
+//        driver.findElement(By.xpath("//input[@inputmode='numeric']")).sendKeys("11111");
+//        Thread.sleep(4000);
+//        if (isDisplayed()) {
+//            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='modal__close']")));
+//            driver.findElement(By.xpath("//button[@class='modal__close']")).click();
+//        }
+
+        new LoginPage(driver)
+                .login("t_eq_ezivankov", "Test123")
+                .sendSms();
+
 
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Переводы']")));

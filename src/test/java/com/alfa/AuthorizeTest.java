@@ -1,7 +1,7 @@
 package com.alfa;
 
-import com.alfa.regress.LoginPage;
-import com.alfa.regress.ResetPassPage;
+import com.alfa.authorize.LoginPage;
+import com.alfa.authorize.ResetPassPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +28,7 @@ public class AuthorizeTest {
 
     @BeforeEach
     void setupBrowser() {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 

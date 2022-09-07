@@ -1,5 +1,6 @@
-package com.alfa.regress;
+package com.alfa.authorize;
 
+import com.alfa.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,8 +54,9 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage sendIncorrectSms() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
+        webDriverWait.until(ExpectedConditions.visibilityOf(sendSmsForm));
         for (int i = 0; i < 6; i++) {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(sendSmsForm));
             sendSmsForm.sendKeys("11112");
         }
         return new LoginPage(driver);

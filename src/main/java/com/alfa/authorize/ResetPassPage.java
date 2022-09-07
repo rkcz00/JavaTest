@@ -1,5 +1,6 @@
-package com.alfa.regress;
+package com.alfa.authorize;
 
+import com.alfa.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

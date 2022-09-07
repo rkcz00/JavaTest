@@ -1,13 +1,13 @@
-package com.alfa.regress;
+package com.alfa.registrationfirm;
 
+import com.alfa.BasePage;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class FirmAnketaPage extends BasePage{
+public class FirmAnketaPage extends BasePage {
     public FirmAnketaPage(WebDriver driver) {
         super(driver);
     }

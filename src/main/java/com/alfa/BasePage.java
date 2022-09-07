@@ -1,4 +1,4 @@
-package com.alfa.regress;
+package com.alfa;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -9,8 +9,8 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver;
-    WebDriverWait webDriverWait;
+    protected WebDriver driver;
+    protected WebDriverWait webDriverWait;
     Actions actions;
 
     public BasePage(WebDriver driver) {

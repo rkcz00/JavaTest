@@ -45,7 +45,7 @@ public class DepoTransfersOutTest {
     @DisplayName("Проверка списания ЦБ")
     void depoTransferOut() throws InterruptedException {
 
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(7));
         driver.get("https://ip12.alfadirect.ru/transfers/securities/out");
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));

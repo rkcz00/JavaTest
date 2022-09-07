@@ -1,11 +1,12 @@
-package com.alfa.regress;
+package com.alfa.authorize;
 
+import com.alfa.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class RegistrationFirmPage extends BasePage{
+public class RegistrationFirmPage extends BasePage {
     public RegistrationFirmPage(WebDriver driver) {
         super(driver);
     }
