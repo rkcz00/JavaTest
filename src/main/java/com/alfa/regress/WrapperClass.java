@@ -1,4 +1,4 @@
-package com.alfa;
+package com.alfa.regress;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -9,17 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WrapperClass {
 
 
-    static WebDriver driver;
-    static WebDriverWait webDriverWait;
-    static String user;
-   static boolean isDisplayed() {
+     WebDriver driver;
+     WebDriverWait webDriverWait;
+     String user;
+    boolean isDisplayed() {
         try {
             return driver.findElement(By.xpath("//button[@class='modal__close']")).isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
     }
-    static void login(String user) throws InterruptedException {
+     void login(String user) throws InterruptedException {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
             driver.findElement(By.id("login")).sendKeys(user);
             driver.findElement(By.id("password")).sendKeys("Test123");
