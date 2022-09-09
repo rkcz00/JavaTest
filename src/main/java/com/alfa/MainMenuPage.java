@@ -1,5 +1,7 @@
 package com.alfa;
 
+import com.alfa.addaccount.AddAccountNewPage;
+import com.alfa.profile.ContactInfoPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +28,15 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//*[text()='Ценные бумаги']")
     private WebElement mainMenuSecurities;
 
+    @FindBy(xpath = "//*[text()='Ещё']")
+    private WebElement moreButton;
+
+    @FindBy(xpath = "//*[text()='Открыть новый счёт']")
+    private WebElement openNewAccountButton;
+
+    @FindBy(xpath = "//*[text()='Профиль']")
+    private WebElement profileButton;
+
     @FindBy(xpath = "//button[@class='modal__close']")
     private WebElement emailWindowCloseButton;
 
@@ -49,5 +60,27 @@ public class MainMenuPage extends BasePage {
         webDriverWait.until(ExpectedConditions.visibilityOf(mainMenuSecurities));
         mainMenuSecurities.click();
         return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage chooseMore(){
+        webDriverWait.until(ExpectedConditions.visibilityOf(moreButton));
+        moreButton.click();
+        return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage chooseOpenNewAccount(){
+        webDriverWait.until(ExpectedConditions.visibilityOf(openNewAccountButton));
+        WebElement element = openNewAccountButton;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+        return new MainMenuPage(driver);
+    }
+
+    public ContactInfoPage chooseProfile(){
+        webDriverWait.until(ExpectedConditions.visibilityOf(profileButton));
+        WebElement element = profileButton;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+        return new ContactInfoPage(driver);
     }
 }
