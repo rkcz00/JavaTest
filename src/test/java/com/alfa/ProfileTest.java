@@ -23,8 +23,9 @@ public class ProfileTest {
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("window-size=1920,1080");
+        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--headless");
 
 
     }
@@ -37,7 +38,7 @@ public class ProfileTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_afnovikov", "Test123")
+                .login("t_eq_prohorov_ie", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

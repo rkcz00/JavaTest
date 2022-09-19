@@ -58,7 +58,7 @@ public class RestorePassPage extends BasePage {
     }
 
     public ResetPassPage sendPassportSms() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         sendPassportSmsForm.sendKeys("0000");
         return new ResetPassPage(driver);
     }
