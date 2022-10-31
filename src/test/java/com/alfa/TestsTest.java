@@ -1,8 +1,8 @@
 package com.alfa;
 
-
 import com.alfa.authorize.LoginPage;
 import com.alfa.profile.ContactInfoPage;
+import com.alfa.tests.AllTestsPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ProfileTest {
+public class TestsTest {
     WebDriver driver;
     WebDriverWait webDriverWait;
     static ChromeOptions chromeOptions = new ChromeOptions();
@@ -43,32 +43,20 @@ public class ProfileTest {
         new MainMenuPage(driver)
                 .checkEmailWindow()
                 .chooseMore()
-                .chooseProfile();
+                .chooseTests();
 
 
     }
 
     @Test
-    @DisplayName("Проверка корректности отображения контактной информации в профиле")
-    void checkProfileContacts() {
+    @DisplayName("Проверка корректности прохождения теста по маржинальной торговле")
+    void checkMarginalTest() {
 
-        new ContactInfoPage(driver)
-                .checkPhoneVisibility()
-                .insertNickName()
-                .saveChatSettingsButton()
-                .checkSuccessNotify();
+        new AllTestsPage(driver)
+                .chooseMarginalTest()
+                .answerQuestion1();
 
     }
-
-    @Test
-    @DisplayName("Проверка корректности отображения паспортных данных")
-    void checkProfilePassportData() {
-
-        new ContactInfoPage(driver)
-                .chooseTabPassportData()
-                .checkPassportData();
-    }
-
 
     @AfterEach
     void quitBrowser() {

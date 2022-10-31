@@ -1,6 +1,7 @@
 package com.alfa;
 
 import com.alfa.profile.ContactInfoPage;
+import com.alfa.tests.AllTestsPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +32,9 @@ public class MainMenuPage extends BasePage {
 
     @FindBy(xpath = "//*[text()='Открыть новый счёт']")
     private WebElement openNewAccountButton;
+
+    @FindBy(xpath = "//*[text()='Тестирование']")
+    private WebElement testsButton;
 
     @FindBy(xpath = "//*[text()='Профиль']")
     private WebElement profileButton;
@@ -80,5 +84,11 @@ public class MainMenuPage extends BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new ContactInfoPage(driver);
+    }
+
+    public AllTestsPage chooseTests(){
+        webDriverWait.until(ExpectedConditions.visibilityOf(testsButton));
+        testsButton.click();
+        return new AllTestsPage(driver);
     }
 }

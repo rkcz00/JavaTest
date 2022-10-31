@@ -28,7 +28,7 @@ public class DepoTransferOutPage extends BasePage {
     @FindBy(id = "security-amount")
     private WebElement securityAmountField;
 
-    @FindBy(xpath = "//div[.='RU0008926258 / 1-01-00155-A']")
+    @FindBy(xpath = "//div[.='RU000A0JNAB6 / 1-01-08902-A']")
     private WebElement securityIsinName;
 
     @FindBy(xpath = "//button[@class='select-button select-button_size_m select-button_theme_alfa-on-white']/span/span[.='Выберите место хранения']")

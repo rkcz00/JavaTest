@@ -35,7 +35,7 @@ public class ContactInfoPage extends BasePage {
     }
 
     public ContactInfoPage insertNickName() {
-        nickNameField.sendKeys("rtyu1234");
+        nickNameField.sendKeys("rtyu1234" + (Math.random()*9+10));
         return new ContactInfoPage(driver);
     }
 

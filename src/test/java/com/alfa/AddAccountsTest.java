@@ -41,7 +41,7 @@ public class AddAccountsTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_kuzmin_va", "Test123")//нужен новый логин на каждый тест
+                .login("t_eq_gedel_pm", "Test123")//нужен новый логин на каждый тест
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

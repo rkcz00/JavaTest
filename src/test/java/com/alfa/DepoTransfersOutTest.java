@@ -33,16 +33,16 @@ public class DepoTransfersOutTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
 
         new LoginPage(driver)
-                .login("lhrapchenko", "Test123")
-                .sendSms();
+                .login("lhrapchenko", "Test123");
+//                .sendSms();
         new MainMenuPage(driver)
-                .checkEmailWindow()
+               .checkEmailWindow()
                 .chooseTransfers()
                 .chooseSecurities();
 
