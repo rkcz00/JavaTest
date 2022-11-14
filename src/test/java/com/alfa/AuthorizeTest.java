@@ -51,7 +51,7 @@ public class AuthorizeTest {
     @DisplayName("Проверка ввода некорректных смс")
     void incorrectSms() {
         new LoginPage(driver)
-                .login("t_eq_d_nikonov", "Test123")
+                .login("t_eq_vinogradov_ds", "Test123")
                 .sendIncorrectSms()
                 .checkOverLimitSms();
 
@@ -63,10 +63,10 @@ public class AuthorizeTest {
     void passwordRecoveryTest() throws InterruptedException {
 
         new LoginPage(driver).restorePassClick()
-                .insertSurname("Агафонов")
-                .insertName("Сабзиро")
-                .insertSecondName("Депозитович")
-                .insertPhone("9057896899")
+                .insertSurname("ВИНОГРАДОВ")
+                .insertName("ДИНО")
+                .insertSecondName("СОЛОМОНОВИЧ")
+                .insertPhone("9058053797")
                 .clickRestorePassButton()
                 .sendPassportSms()
                 .insertNewPassword("Test123")

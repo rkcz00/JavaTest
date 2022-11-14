@@ -1,7 +1,6 @@
 package com.alfa.tests;
 
 import com.alfa.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,38 +26,61 @@ public class MarginalTestPage extends BasePage {
     @FindBy(id = "answer-1")
     private WebElement answer1_2;
 
+    @FindBy(xpath = "//h4[contains(text(), 'При покупке')]")
+    private WebElement question2_1;
+
+    @FindBy(xpath = "//h4[contains(text(), 'Может ли ')]")
+    private WebElement question2_2;
+
+    @FindBy(id = "answer-1")
+    private WebElement answer2_1;
+
+    @FindBy(id = "answer-12")
+    private WebElement answer2_2;
+
     @FindBy(id = "next")
     private WebElement nextButton;
 
 
 
 
-    public WebElement checkQuestion1() {
+    public WebElement checkQuestion(WebElement question1, WebElement question2) {
         try {
-            return question1_1;
+            return question1;
 
         } catch (NoSuchElementException e) {
-            return question1_2;
+            return question2;
         }
     }
 
 
-    public WebElement selectAnswer1() {
+    public WebElement selectAnswer(WebElement question1, WebElement question2, WebElement answer1, WebElement answer2) {
 
-        if (checkQuestion1() == question1_1) {
-            return answer1_1;
-        }else{
-            return answer1_2;}
+        if (checkQuestion(question1, question2) == question1) {
+            return answer1;
+        } else {
+            return answer2;
+        }
     }
-
-
 
 
     public MarginalTestPage answerQuestion1() {
 
 
-        webDriverWait.until(ExpectedConditions.visibilityOf(checkQuestion1()));
-        WebElement element = selectAnswer1();
+        webDriverWait.until(ExpectedConditions.visibilityOf(checkQuestion(question1_1, question1_2)));
+        WebElement element = selectAnswer(question1_1, question1_1, answer1_1, answer1_2);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+        nextButton.click();
+
+        return new MarginalTestPage(driver);
+    }
+
+    public MarginalTestPage answerQuestion2() {
+
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(checkQuestion(question1_1, question1_2)));
+        WebElement element = selectAnswer(question1_1, question1_1, answer1_1, answer1_2);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         nextButton.click();

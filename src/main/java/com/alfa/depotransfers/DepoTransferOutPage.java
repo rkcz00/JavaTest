@@ -19,7 +19,7 @@ public class DepoTransferOutPage extends BasePage {
     @FindBy(xpath = "//span[@class='select-button__content'][.='Выберите позицию']")
     private WebElement choosePositionField;
 
-    @FindBy(xpath = "//div[.='8787-000']")
+    @FindBy(xpath = "//div[.='Портфель 1']")
     private WebElement accountNum;
 
     @FindBy(id = "security-name")

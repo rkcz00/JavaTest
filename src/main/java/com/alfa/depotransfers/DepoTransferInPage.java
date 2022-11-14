@@ -52,7 +52,7 @@ public class DepoTransferInPage extends BasePage {
     @FindBy(xpath = "//span[@class='select-button__text']/span[.= 'Выберите субсчёт']")
     private WebElement subAccount;
 
-    @FindBy(xpath = "//span[.='1048654-000']")
+    @FindBy(xpath = "//div/span[.='1048654-000']")
     private WebElement subAccountNum;
 
     @FindBy(xpath = "//span[@class='select-button__text']/span[.='Выберите рынок']")
