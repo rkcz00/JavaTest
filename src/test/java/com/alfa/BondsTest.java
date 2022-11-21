@@ -1,7 +1,6 @@
 package com.alfa;
 
 import com.alfa.authorize.LoginPage;
-import com.alfa.profile.ContactInfoPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;

@@ -24,6 +24,9 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//div//*[text()='Переводы']")
     private WebElement mainMenuTransfers;
 
+    @FindBy(xpath = "//div//*[text()='Деньги']")
+    private WebElement mainMenuMoneyTransfers;
+
     @FindBy(xpath = "//*[text()='Ценные бумаги']")
     private WebElement mainMenuSecurities;
 
@@ -55,6 +58,12 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage chooseTransfers() {
         webDriverWait.until(ExpectedConditions.visibilityOf(mainMenuTransfers));
         mainMenuTransfers.click();
+        return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage chooseMoneyTransfers() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(mainMenuMoneyTransfers));
+        mainMenuMoneyTransfers.click();
         return new MainMenuPage(driver);
     }
 

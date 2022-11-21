@@ -35,7 +35,7 @@ public class AddAccountsTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
