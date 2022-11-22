@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class PassportData extends BasePage {
-    public PassportData(WebDriver driver) {
+public class PassportDataPage extends BasePage {
+    public PassportDataPage(WebDriver driver) {
         super(driver);
     }
 

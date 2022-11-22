@@ -28,6 +28,7 @@ public class TransfersTest {
         WebDriverManager.chromedriver().setup();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("window-size=1920,1080");
+        chromeOptions.
 
 
     }
@@ -35,7 +36,7 @@ public class TransfersTest {
     @BeforeEach
     void setupBrowser() throws InterruptedException {
         driver = new ChromeDriver();
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
 
@@ -58,7 +59,8 @@ public class TransfersTest {
         new OtherBankPage(driver)
                 .chooseInTheOtherBank()
                 .insertFields()
-                .clickSendMoney();
+                .clickSendMoney()
+                .checkSuccessNotify();;
     }
 
     @Test
@@ -69,7 +71,8 @@ public class TransfersTest {
         new InteriorPage(driver)
                 .chooseInteriorTransfer()
                 .insertAmount()
-                .clickTransferButton();
+                .clickTransferButton()
+                .checkSuccessNotify();
     }
 
 

@@ -69,6 +69,16 @@ public class ProfileTest {
                 .checkPassportData();
     }
 
+    @Test
+    @DisplayName("Проверка корректности смены пароля")
+    void checkCheckPasswordChange() {
+
+        new ContactInfoPage(driver)
+                .chooseTabChangePassword()
+                .insertFields()
+                .;
+    }
+
 
     @AfterEach
     void quitBrowser() {

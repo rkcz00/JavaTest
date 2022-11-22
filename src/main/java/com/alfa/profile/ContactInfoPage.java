@@ -29,6 +29,9 @@ public class ContactInfoPage extends BasePage {
     @FindBy(xpath = "//a[.= 'Паспортные данные']")
     private WebElement tabPassportData;
 
+    @FindBy(xpath = "//span[.= 'Смена пароля']")
+    private WebElement tabChangePassword;
+
     public ContactInfoPage checkPhoneVisibility() {
         webDriverWait.until(ExpectedConditions.visibilityOf(phoneField));
         return new ContactInfoPage(driver);
@@ -50,10 +53,16 @@ public class ContactInfoPage extends BasePage {
         return new ContactInfoPage(driver);
     }
 
-    public PassportData chooseTabPassportData() {
+    public PassportDataPage chooseTabPassportData() {
         webDriverWait.until(ExpectedConditions.visibilityOf(tabPassportData));
         tabPassportData.click();
-        return new PassportData(driver);
+        return new PassportDataPage(driver);
+    }
+
+    public ChangePasswordPage chooseTabChangePassword() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(tabChangePassword));
+        tabChangePassword.click();
+        return new ChangePasswordPage(driver);
     }
 
 

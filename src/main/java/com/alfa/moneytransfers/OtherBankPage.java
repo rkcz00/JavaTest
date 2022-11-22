@@ -1,6 +1,7 @@
 package com.alfa.moneytransfers;
 
 import com.alfa.BasePage;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +33,9 @@ public class OtherBankPage extends BasePage {
     @FindBy(id = "send-money")
     private WebElement sendMoneyButton;
 
+    @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
+    private WebElement successNotify;
+
     public OtherBankPage chooseInTheOtherBank(){
         webDriverWait.until(ExpectedConditions.visibilityOf(inTheOtherBank));
         inTheOtherBank.click();
@@ -52,6 +56,12 @@ public class OtherBankPage extends BasePage {
     public OtherBankPage clickSendMoney(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
         sendMoneyButton.click();
+        return new OtherBankPage(driver);
+    }
+
+    public OtherBankPage checkSuccessNotify() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(successNotify));
+        Assertions.assertTrue(successNotify.isDisplayed());
         return new OtherBankPage(driver);
     }
 }
