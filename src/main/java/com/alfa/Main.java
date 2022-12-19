@@ -1,5 +1,7 @@
 package com.alfa;
 
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -7,6 +9,7 @@ public class Main {
             int a =  (int) (Math.random() * 900+1000);
             System.out.println(a);
         }
+
 
     }
 }

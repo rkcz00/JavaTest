@@ -2,10 +2,16 @@ package com.alfa.moneytransfers;
 
 import com.alfa.BasePage;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 public class OtherBankPage extends BasePage {
     public OtherBankPage(WebDriver driver) {
@@ -56,6 +62,16 @@ public class OtherBankPage extends BasePage {
     public OtherBankPage clickSendMoney(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
         sendMoneyButton.click();
+        return new OtherBankPage(driver);
+    }
+
+    public OtherBankPage pressKeys() throws FindFailed {
+        String filepath = "C:\\Users\\Selecty\\Documents\\";
+        Screen s = new Screen();
+        Pattern openDocumentBox = new Pattern(filepath + "Button.png");
+
+        s.wait(openDocumentBox, 10);
+        s.click(openDocumentBox);
         return new OtherBankPage(driver);
     }
 

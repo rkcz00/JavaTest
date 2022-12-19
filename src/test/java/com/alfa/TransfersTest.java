@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
 
 import java.time.Duration;
 
@@ -26,17 +27,16 @@ public class TransfersTest {
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("window-size=1920,1080");
-        chromeOptions.
-
+        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--headless");
 
     }
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver();
-//        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver = new ChromeDriver(chromeOptions);
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
 
@@ -53,14 +53,16 @@ public class TransfersTest {
 
     @Test
     @DisplayName("Проверка перевода в другой банк ")
-    void otherBankTransfer() {
+    void otherBankTransfer() throws  FindFailed {
 
 
         new OtherBankPage(driver)
                 .chooseInTheOtherBank()
                 .insertFields()
                 .clickSendMoney()
-                .checkSuccessNotify();;
+                .pressKeys()
+                .checkSuccessNotify();
+
     }
 
     @Test

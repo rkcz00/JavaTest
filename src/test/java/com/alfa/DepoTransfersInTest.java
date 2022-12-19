@@ -32,7 +32,7 @@ public class DepoTransfersInTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
@@ -49,6 +49,7 @@ public class DepoTransfersInTest {
     }
 
     @Test
+//    @Disabled
     @DisplayName("Проверка зачисления ЦБ")
     void depoTransferIn() {
 
@@ -66,6 +67,7 @@ public class DepoTransfersInTest {
     }
 
     @Test
+//    @Disabled
     @DisplayName("Проверка пакетного зачисления ЦБ")
     void depoTransferMassIn() {
 

@@ -75,8 +75,7 @@ public class ProfileTest {
 
         new ContactInfoPage(driver)
                 .chooseTabChangePassword()
-                .insertFields()
-                .;
+                ;
     }
 
 
