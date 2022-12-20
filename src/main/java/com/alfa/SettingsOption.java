@@ -38,7 +38,7 @@ public class SettingsOption {
 //        allowedProtocols.put("https://lkpreprod.alfadirect.ru", getAllowedProtocolKeys());
 //        return allowedProtocols;
 //    }
-
+// Test test
 
 
     public static ChromeDriver getChromeDriver() {
