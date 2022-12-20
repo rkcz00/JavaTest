@@ -6,6 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
+
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class OtherBankPage extends BasePage {
     public OtherBankPage(WebDriver driver) {
@@ -56,6 +62,23 @@ public class OtherBankPage extends BasePage {
     public OtherBankPage clickSendMoney(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
         sendMoneyButton.click();
+        return new OtherBankPage(driver);
+    }
+
+    public OtherBankPage pressKeys() throws URISyntaxException, FindFailed {
+//        String filepath = "C:\\Users\\Selecty\\Documents\\";
+        Screen s = new Screen();
+//        Pattern openDocumentBox = new Pattern(filepath + "Button.png");
+//
+//        s.wait(openDocumentBox, 5);
+//
+//        s.click(openDocumentBox);
+
+        URL resourceFolderURL = this.getClass().getClassLoader().getResource("images");
+        String basePath = resourceFolderURL.toURI().getPath() + "/";
+
+        s.wait(5.0);
+        s.click(basePath + "1671565807319.png");
         return new OtherBankPage(driver);
     }
 
