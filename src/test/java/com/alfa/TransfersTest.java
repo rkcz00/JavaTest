@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
 
+import java.net.URISyntaxException;
 import java.time.Duration;
 
 
@@ -27,8 +29,8 @@ public class TransfersTest {
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
         chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("window-size=1920,1080");
-        chromeOptions.
+        chromeOptions.addArguments("window-size=1280,720");
+//        chromeOptions.
 
 
     }
@@ -53,13 +55,14 @@ public class TransfersTest {
 
     @Test
     @DisplayName("Проверка перевода в другой банк ")
-    void otherBankTransfer() {
+    void otherBankTransfer() throws FindFailed, URISyntaxException, InterruptedException {
 
 
         new OtherBankPage(driver)
                 .chooseInTheOtherBank()
                 .insertFields()
                 .clickSendMoney()
+                .pressKeys()
                 .checkSuccessNotify();;
     }
 

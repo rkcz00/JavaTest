@@ -74,9 +74,9 @@ public class ProfileTest {
     void checkCheckPasswordChange() {
 
         new ContactInfoPage(driver)
-                .chooseTabChangePassword()
-                .insertFields()
-                .;
+                .chooseTabChangePassword();
+
+
     }
 
 
