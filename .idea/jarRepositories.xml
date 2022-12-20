@@ -16,5 +16,10 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="Mulesoft Repo" />
+      <option name="name" value="Mulesoft Repo" />
+      <option name="url" value="https://repository.mulesoft.org/nexus/content/repositories/public/" />
+    </remote-repository>
   </component>
 </project>

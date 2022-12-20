@@ -13,6 +13,9 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
+import java.net.URISyntaxException;
+import java.net.URL;
+
 public class OtherBankPage extends BasePage {
     public OtherBankPage(WebDriver driver) {
         super(driver);
@@ -65,13 +68,20 @@ public class OtherBankPage extends BasePage {
         return new OtherBankPage(driver);
     }
 
-    public OtherBankPage pressKeys() throws FindFailed {
-        String filepath = "C:\\Users\\Selecty\\Documents\\";
+    public OtherBankPage pressKeys() throws URISyntaxException, FindFailed {
+//        String filepath = "C:\\Users\\Selecty\\Documents\\";
         Screen s = new Screen();
-        Pattern openDocumentBox = new Pattern(filepath + "Button.png");
+//        Pattern openDocumentBox = new Pattern(filepath + "Button.png");
+//
+//        s.wait(openDocumentBox, 5);
+//
+//        s.click(openDocumentBox);
 
-        s.wait(openDocumentBox, 10);
-        s.click(openDocumentBox);
+        URL resourceFolderURL = this.getClass().getClassLoader().getResource("images");
+        String basePath = resourceFolderURL.toURI().getPath() + "/";
+
+        s.wait(5.0);
+        s.click(basePath + "Button1.PNG");
         return new OtherBankPage(driver);
     }
 
