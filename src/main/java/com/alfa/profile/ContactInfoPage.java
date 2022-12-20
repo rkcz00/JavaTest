@@ -60,7 +60,7 @@ public class ContactInfoPage extends BasePage {
     }
 
     public ChangePasswordPage chooseTabChangePassword() {
-        webDriverWait.until(ExpectedConditions.visibilityOf(tabChangePassword));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(tabChangePassword));
         tabChangePassword.click();
         return new ChangePasswordPage(driver);
     }

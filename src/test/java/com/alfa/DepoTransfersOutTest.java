@@ -33,7 +33,7 @@ public class DepoTransfersOutTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         driver.get(LK_TEST_URL);
 
 
@@ -50,6 +50,7 @@ public class DepoTransfersOutTest {
 
 
     @Test
+//    @Disabled
     @DisplayName("Проверка списания ЦБ")
     void depoTransferOut() {
 

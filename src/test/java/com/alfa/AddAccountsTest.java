@@ -35,13 +35,13 @@ public class AddAccountsTest {
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(LK_TEST_URL);
 
 
         new LoginPage(driver)
-                .login("t_eq_vinogradov_ds", "Test123")//нужен новый логин на каждый тест
+                .login("t_eq_dtvlasov", "Test123")//нужен новый логин на каждый тест
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()
