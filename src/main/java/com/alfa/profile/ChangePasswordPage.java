@@ -1,6 +1,9 @@
 package com.alfa.profile;
 
 import com.alfa.BasePage;
+import com.alfa.moneytransfers.OtherBankPage;
+import org.checkerframework.checker.units.qual.C;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,15 +23,26 @@ public class ChangePasswordPage extends BasePage {
     @FindBy(id = "request-password-change")
     private WebElement passwordChangeButton;
 
-    public void ChangePasswordPage() {
+    @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
+    private WebElement successNotify;
+
+    public ChangePasswordPage setNewPassword() {
         webDriverWait.until(ExpectedConditions.visibilityOf(passwordField));
-        passwordField.sendKeys("Test123");
-        passwordConfirmationField.sendKeys("Test123");
+        passwordField.sendKeys("Fest123");
+        passwordConfirmationField.sendKeys("Fest123");
+        return new ChangePasswordPage(driver);
     }
 
-    public void clickPasswordChangeButton(){
+    public ChangePasswordPage clickPasswordChangeButton(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(passwordChangeButton));
         passwordChangeButton.click();
+        return new ChangePasswordPage(driver);
+    }
+
+    public ChangePasswordPage checkSuccessNotify() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(successNotify));
+        Assertions.assertTrue(successNotify.isDisplayed());
+        return new ChangePasswordPage(driver);
     }
 }
 

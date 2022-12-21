@@ -29,7 +29,7 @@ public class ContactInfoPage extends BasePage {
     @FindBy(xpath = "//a[.= 'Паспортные данные']")
     private WebElement tabPassportData;
 
-    @FindBy(xpath = "//span[.= 'Смена пароля']")
+    @FindBy(xpath = "//a[.= 'Смена пароля']")
     private WebElement tabChangePassword;
 
     public ContactInfoPage checkPhoneVisibility() {

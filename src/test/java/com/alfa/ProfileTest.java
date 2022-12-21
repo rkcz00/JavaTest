@@ -6,8 +6,6 @@ import com.alfa.profile.ContactInfoPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -15,7 +13,6 @@ import java.time.Duration;
 public class ProfileTest {
     WebDriver driver;
     WebDriverWait webDriverWait;
-    static ChromeOptions chromeOptions = new ChromeOptions();
 
     private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
@@ -23,17 +20,15 @@ public class ProfileTest {
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-        chromeOptions.addArguments("window-size=1920,1080");
-        chromeOptions.addArguments("--start-maximized");
-        chromeOptions.addArguments("--headless");
+
 
 
     }
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver(chromeOptions);
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver = SettingsOption.getChromeDriver();
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get(LK_TEST_URL);
 
 
@@ -71,11 +66,13 @@ public class ProfileTest {
 
     @Test
     @DisplayName("Проверка корректности смены пароля")
-    void checkCheckPasswordChange() {
+    void checkPasswordChange() {
 
         new ContactInfoPage(driver)
-                .chooseTabChangePassword();
-
+                .chooseTabChangePassword()
+                .setNewPassword()
+                .clickPasswordChangeButton()
+                .checkSuccessNotify();
 
     }
 
