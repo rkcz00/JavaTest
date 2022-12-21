@@ -7,10 +7,9 @@ import com.alfa.moneytransfers.OtherBankPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
-
+//test12344
 public class TransfersTest {
 
     WebDriver driver;
