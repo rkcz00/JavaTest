@@ -49,7 +49,7 @@ public class DepoTransfersInTest {
     }
 
     @Test
-//    @Disabled
+    @Disabled
     @DisplayName("Проверка зачисления ЦБ")
     void depoTransferIn() {
 
