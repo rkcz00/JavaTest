@@ -67,7 +67,7 @@ public class DepoTransfersInTest {
     }
 
     @Test
-//    @Disabled
+    @Disabled
     @DisplayName("Проверка пакетного зачисления ЦБ")
     void depoTransferMassIn() {
 

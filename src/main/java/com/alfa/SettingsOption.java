@@ -3,9 +3,7 @@ package com.alfa;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.util.HashMap;
-
 import static java.util.Collections.singletonMap;
 
 
@@ -38,7 +36,6 @@ public class SettingsOption {
 //        allowedProtocols.put("https://lkpreprod.alfadirect.ru", getAllowedProtocolKeys());
 //        return allowedProtocols;
 //    }
-// Test test
 
 
     public static ChromeDriver getChromeDriver() {
@@ -53,14 +50,14 @@ public class SettingsOption {
         chromeOptions.setExperimentalOption("prefs", singletonMap("protocol_handler.allowed_origin_protocol_pairs", singletonMap("https://ip12.alfadirect.ru", singletonMap("adir-test", true))));
 
         chromeOptions.addArguments("window-size=1280,720");
-        chromeOptions.addArguments("--headless");
-
-
-        chromeOptions.addArguments("--safebrowsing-disable-download-protection");
-        chromeOptions.addArguments("--safebrowsing-disable-extension-blacklist");
-        chromeOptions.addArguments("--disable-extensions");
-        chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.addArguments("--headless");
+//
+//
+//        chromeOptions.addArguments("--safebrowsing-disable-download-protection");
+//        chromeOptions.addArguments("--safebrowsing-disable-extension-blacklist");
+//        chromeOptions.addArguments("--disable-extensions");
+//        chromeOptions.addArguments("--disable-dev-shm-usage");
+//        chromeOptions.addArguments("--no-sandbox");
 
 
 //        chromeOptions.addArguments("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36");
