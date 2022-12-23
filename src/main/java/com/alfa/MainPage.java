@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
     public MainPage(WebDriver driver) {
         super(driver);
     }
@@ -26,9 +26,19 @@ public class MainPage extends BasePage{
     @FindBy(xpath = "//a[@class='link guide-step__close link_size_m link_flex link_theme_alfa-on-white']")
     private WebElement closeWelcomePopupButton;
 
+    @FindBy(xpath = "//span[@class='select__inner']/span[.='С позиции']")
+    private WebElement position;
 
+    @FindBy(xpath = "//span[.='₽']")
+    private WebElement onAccount;
 
-    public MainMenuPage closeWelcomePopUp(){
+    @FindBy(id = "amount")
+    private WebElement amount;
+
+    @FindBy(id = "send-money")
+    private WebElement sendMoneyButton;
+
+    public MainMenuPage closeWelcomePopUp() {
         webDriverWait.until(ExpectedConditions.visibilityOf(newUserPopUp));
         List<WebElement> rialtoList = driver.findElements(By.xpath("//a[@class='link guide-step__close link_size_m link_flex link_theme_alfa-on-white']"));
         Actions actions = new Actions(driver);
@@ -36,7 +46,7 @@ public class MainPage extends BasePage{
         return new MainMenuPage(driver);
     }
 
-    public MainMenuPage nextButtonClick(){
+    public MainMenuPage nextButtonClick() {
         webDriverWait.until(ExpectedConditions.visibilityOf(newUserPopUp));
         List<WebElement> firstNextButtons = driver.findElements(By.xpath("//span/span[.='Дальше']"));
         firstNextButtons.get(1).click();
@@ -45,6 +55,26 @@ public class MainPage extends BasePage{
         secondsNextButtons.get(1).click();
 
         return new MainMenuPage(driver);
+    }
+
+    public MainPage insertFields() {
+        WebElement element = position;
+        WebElement element1 = amount;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+
+        List<WebElement> rialtoList = driver.findElements(
+                By.xpath("//span[@class = 'trade-option__account']"));;
+        rialtoList.get(0).click();
+
+//        webDriverWait.until(ExpectedConditions.visibilityOf(onAccount));
+//        onAccount.click();
+        actions.moveToElement(element1).click().build().perform();
+        amount.sendKeys("100");
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
+        sendMoneyButton.click();
+
+        return new MainPage(driver);
     }
 
 
