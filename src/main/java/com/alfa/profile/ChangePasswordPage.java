@@ -28,8 +28,8 @@ public class ChangePasswordPage extends BasePage {
 
     public ChangePasswordPage setNewPassword() {
         webDriverWait.until(ExpectedConditions.visibilityOf(passwordField));
-        passwordField.sendKeys("Fest123");
-        passwordConfirmationField.sendKeys("Fest123");
+        passwordField.sendKeys("Test123");
+        passwordConfirmationField.sendKeys("Test123");
         return new ChangePasswordPage(driver);
     }
 

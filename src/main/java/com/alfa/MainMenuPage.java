@@ -42,6 +42,9 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//*[text()='Профиль']")
     private WebElement profileButton;
 
+    @FindBy(xpath = "//*[text()='Произвольное поручение']")
+    private WebElement arbitaryOrderButton;
+
     @FindBy(xpath = "//button[@class='modal__close']")
     private WebElement emailWindowCloseButton;
 
@@ -99,5 +102,13 @@ public class MainMenuPage extends BasePage {
         webDriverWait.until(ExpectedConditions.visibilityOf(testsButton));
         testsButton.click();
         return new AllTestsPage(driver);
+    }
+
+    public ArbitraryOrders chooseArbitaryOrder(){
+        webDriverWait.until(ExpectedConditions.visibilityOf(arbitaryOrderButton));
+        WebElement element = arbitaryOrderButton;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+        return new ArbitraryOrders(driver);
     }
 }
