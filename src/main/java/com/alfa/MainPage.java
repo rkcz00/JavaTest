@@ -1,6 +1,7 @@
 package com.alfa;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -67,9 +68,9 @@ public class MainPage extends BasePage {
                 By.xpath("//span[@class = 'trade-option__account']"));;
         rialtoList.get(0).click();
 
-//        webDriverWait.until(ExpectedConditions.visibilityOf(onAccount));
-//        onAccount.click();
         actions.moveToElement(element1).click().build().perform();
+        amount.click();
+        amount.sendKeys(Keys.BACK_SPACE);
         amount.sendKeys("100");
         webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
         sendMoneyButton.click();
