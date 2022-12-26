@@ -39,7 +39,8 @@ public class QuickWithdrawTest {
     void checkQuickWithdraw() {
 
         new MainPage(driver)
-                .insertFields();
+                .insertFields()
+                .checkSuccessNotify();
 
     }
 

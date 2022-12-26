@@ -1,5 +1,7 @@
 package com.alfa;
 
+import com.alfa.moneytransfers.OtherBankPage;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +41,9 @@ public class MainPage extends BasePage {
     @FindBy(id = "send-money")
     private WebElement sendMoneyButton;
 
+    @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
+    private WebElement successNotify;
+
     public MainMenuPage closeWelcomePopUp() {
         webDriverWait.until(ExpectedConditions.visibilityOf(newUserPopUp));
         List<WebElement> rialtoList = driver.findElements(By.xpath("//a[@class='link guide-step__close link_size_m link_flex link_theme_alfa-on-white']"));
@@ -74,7 +79,12 @@ public class MainPage extends BasePage {
         amount.sendKeys("100");
         webDriverWait.until(ExpectedConditions.elementToBeClickable(sendMoneyButton));
         sendMoneyButton.click();
+        return new MainPage(driver);
+    }
 
+    public MainPage checkSuccessNotify() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(successNotify));
+        Assertions.assertTrue(successNotify.isDisplayed());
         return new MainPage(driver);
     }
 
