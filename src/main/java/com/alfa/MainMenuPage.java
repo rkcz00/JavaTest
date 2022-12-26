@@ -2,7 +2,10 @@ package com.alfa;
 
 import com.alfa.profile.ContactInfoPage;
 import com.alfa.tests.AllTestsPage;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,6 +51,9 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//button[@class='modal__close']")
     private WebElement emailWindowCloseButton;
 
+    @FindBy(xpath = "//*[text()='Документы и налоги']")
+    private WebElement documentsAndTaxes;
+
     public MainMenuPage checkEmailWindow() throws InterruptedException {
         Thread.sleep(4000);
 //        webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
@@ -70,19 +76,19 @@ public class MainMenuPage extends BasePage {
         return new MainMenuPage(driver);
     }
 
-    public MainMenuPage chooseSecurities(){
+    public MainMenuPage chooseSecurities() {
         webDriverWait.until(ExpectedConditions.visibilityOf(mainMenuSecurities));
         mainMenuSecurities.click();
         return new MainMenuPage(driver);
     }
 
-    public MainMenuPage chooseMore(){
+    public MainMenuPage chooseMore() {
         webDriverWait.until(ExpectedConditions.visibilityOf(moreButton));
         moreButton.click();
         return new MainMenuPage(driver);
     }
 
-    public MainMenuPage chooseOpenNewAccount(){
+    public MainMenuPage chooseOpenNewAccount() {
         webDriverWait.until(ExpectedConditions.visibilityOf(openNewAccountButton));
         WebElement element = openNewAccountButton;
         Actions actions = new Actions(driver);
@@ -90,7 +96,7 @@ public class MainMenuPage extends BasePage {
         return new MainMenuPage(driver);
     }
 
-    public ContactInfoPage chooseProfile(){
+    public ContactInfoPage chooseProfile() {
         webDriverWait.until(ExpectedConditions.visibilityOf(profileButton));
         WebElement element = profileButton;
         Actions actions = new Actions(driver);
@@ -98,17 +104,23 @@ public class MainMenuPage extends BasePage {
         return new ContactInfoPage(driver);
     }
 
-    public AllTestsPage chooseTests(){
+    public AllTestsPage chooseTests() {
         webDriverWait.until(ExpectedConditions.visibilityOf(testsButton));
         testsButton.click();
         return new AllTestsPage(driver);
     }
 
-    public ArbitraryOrders chooseArbitaryOrder(){
+    public ArbitraryOrders chooseArbitaryOrder() {
         webDriverWait.until(ExpectedConditions.visibilityOf(arbitaryOrderButton));
         WebElement element = arbitaryOrderButton;
         Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new ArbitraryOrders(driver);
+    }
+
+    public MainMenuPage chooseDocumentsAndTaxes() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(documentsAndTaxes));
+        documentsAndTaxes.click();
+        return new MainMenuPage(driver);
     }
 }

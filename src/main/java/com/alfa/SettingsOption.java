@@ -52,7 +52,7 @@ public class SettingsOption {
         chromeOptions.setExperimentalOption("prefs", singletonMap("protocol_handler.allowed_origin_protocol_pairs", singletonMap("https://ip12.alfadirect.ru", singletonMap("adir-test", true))));
 
         chromeOptions.addArguments("window-size=1280,720");
-        chromeOptions.addArguments("--headless");
+//        chromeOptions.addArguments("--headless");
 //
 //
 //        chromeOptions.addArguments("--safebrowsing-disable-download-protection");
