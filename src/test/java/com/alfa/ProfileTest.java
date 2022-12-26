@@ -8,16 +8,14 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 public class ProfileTest {
+
     WebDriver driver;
-
-
     private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
 
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-
 
     }
 

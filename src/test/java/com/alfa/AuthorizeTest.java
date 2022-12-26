@@ -5,24 +5,15 @@ import com.alfa.authorize.ResetPassPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class AuthorizeTest {
 
     WebDriver driver;
-
-
-
     private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-
 
     }
 

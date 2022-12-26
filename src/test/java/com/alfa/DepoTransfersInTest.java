@@ -6,34 +6,23 @@ import com.alfa.depotransfers.DepoTransferInPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
 
 public class DepoTransfersInTest {
 
     WebDriver driver;
-    WebDriverWait webDriverWait;
-    static ChromeOptions chromeOptions = new ChromeOptions();
-
     private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
 
     @BeforeAll
     static void registerDriver() {
         WebDriverManager.chromedriver().setup();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("window-size=1920,1080");
-
 
     }
 
     @BeforeEach
     void setupBrowser() throws InterruptedException {
-        driver = new ChromeDriver(chromeOptions);
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
 
