@@ -24,20 +24,30 @@ public class DocumentsTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_drozdov_va", "Test123")
+                .login("t_eq_nshomski", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
+//                .goToBlockedАssets()
                 .checkEmailWindow()
                 .chooseDocumentsAndTaxes();
 
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("Проверка заказа брокерского отчета")
     void checkReportOrder() {
 
         new TaxesInfoPage(driver)
-                .chooseDocumentOrderTab();
+                .chooseDocumentOrderTab()
+                .chooseReportDocument()
+                .chooseBrokerageReport()
+                .chooseWayToGetOffice()
+                .insertOfficeFields()
+                .clickOfferDocumentsButton()
+                .checkFirstSuccessNotify()
+                .chooseWayToGetPost()
+                .clickOfferDocumentsButton()
+                .checkFinalSuccessNotify();
 
     }
 

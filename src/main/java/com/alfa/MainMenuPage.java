@@ -54,6 +54,12 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//*[text()='Документы и налоги']")
     private WebElement documentsAndTaxes;
 
+//    @FindBy(xpath = "//div[contains(@class, 'email-verification-modal')]/button[@class= 'modal__close']")
+//    private WebElement closeBlockedDepoButton;
+
+    @FindBy(xpath = "//span/span[.='Перейти к списку активов']")
+    private WebElement goToBlockedАssetsButton;
+
     public MainMenuPage checkEmailWindow() throws InterruptedException {
         Thread.sleep(4000);
 //        webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
@@ -61,6 +67,14 @@ public class MainMenuPage extends BasePage {
             webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
             emailWindowCloseButton.click();
         }
+        return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage goToBlockedАssets() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(goToBlockedАssetsButton));
+        WebElement element = goToBlockedАssetsButton;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
         return new MainMenuPage(driver);
     }
 
