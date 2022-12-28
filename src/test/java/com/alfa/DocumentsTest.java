@@ -43,10 +43,10 @@ public class DocumentsTest {
                 .chooseBrokerageReport()
                 .chooseWayToGetOffice()
                 .insertOfficeFields()
-                .clickOfferDocumentsButton()
+                .clickOfferReportsButton()
                 .checkFirstSuccessNotify()
                 .chooseWayToGetPost()
-                .clickOfferDocumentsButton()
+                .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
 
     }
@@ -61,10 +61,10 @@ public class DocumentsTest {
                 .chooseReferenceCalculationReport()
                 .chooseWayToGetOffice()
                 .insertOfficeFields()
-                .clickOfferDocumentsButton()
+                .clickOfferReportsButton()
                 .checkFirstSuccessNotify()
                 .chooseWayToGetPost()
-                .clickOfferDocumentsButton()
+                .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
 
     }
@@ -79,10 +79,46 @@ public class DocumentsTest {
                 .chooseDetailedСalculationReport()
                 .chooseWayToGetOffice()
                 .insertOfficeFields()
+                .clickOfferReportsButton()
+                .checkFirstSuccessNotify()
+                .chooseWayToGetPost()
+                .clickOfferReportsButton()
+                .checkFinalSuccessNotify();
+
+    }
+
+    @Test
+    @Disabled
+    @DisplayName("Проверка заказа справки 2-НДФЛ")
+    void checkNdflOrder() {
+
+        new TaxesInfoPage(driver)
+                .chooseDocumentOrderTab()
+                .chooseNdflReport()
+                .chooseWayToGetOffice()
+                .insertOfficeFields()
+                .clickOfferReportsButton()
+                .checkFirstSuccessNotify()
+                .chooseWayToGetPost()
+                .clickOfferReportsButton()
+                .checkFinalSuccessNotify();
+
+    }
+
+    @Test
+    @DisplayName("Проверка заказа выписки о движении")
+    void checkMovementReportOrder() {
+
+        new TaxesInfoPage(driver)
+                .chooseDocumentOrderTab()
+                .chooseStatementOfMovementReport()
+                .chooseDepoAccount()
+                .chooseWayToGetOffice()
+                .insertOfficeFields()
                 .clickOfferDocumentsButton()
                 .checkFirstSuccessNotify()
                 .chooseWayToGetPost()
-                .clickOfferDocumentsButton()
+                .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
 
     }

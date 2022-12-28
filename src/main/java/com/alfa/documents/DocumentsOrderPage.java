@@ -1,13 +1,15 @@
 package com.alfa.documents;
 
-import com.alfa.ArbitraryOrders;
 import com.alfa.BasePage;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class DocumentsOrderPage extends BasePage {
     public DocumentsOrderPage(WebDriver driver) {
@@ -68,6 +70,9 @@ public class DocumentsOrderPage extends BasePage {
     @FindBy(xpath = "//span[.='На почтовый адрес']")
     private WebElement wayToGetPost;
 
+    @FindBy(xpath = "//span[.='КЦБ ММВБ']")
+    private WebElement depoAccount;
+
     @FindBy(id = "city")
     private WebElement cityField;
 
@@ -78,11 +83,13 @@ public class DocumentsOrderPage extends BasePage {
     private WebElement commentField;
 
     @FindBy(id = "offer-offline-documents")
+    private WebElement offerReportsButton;
+
+    @FindBy(id = "do-order")
     private WebElement offerDocumentsButton;
 
     @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
     private WebElement successNotify;
-
 
 
     public DocumentsOrderPage chooseReportDocument() {
@@ -133,6 +140,32 @@ public class DocumentsOrderPage extends BasePage {
         return new DocumentsOrderPage(driver);
     }
 
+    public DocumentsOrderPage chooseNdflReport() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(chooseDocument));
+        chooseDocument.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(twoNDFL));
+        twoNDFL.click();
+        return new DocumentsOrderPage(driver);
+    }
+
+    public DocumentsOrderPage chooseStatementOfMovementReport() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(chooseDocument));
+        chooseDocument.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(statementOfMovement));
+        statementOfMovement.click();
+        return new DocumentsOrderPage(driver);
+    }
+
+
+    public DocumentsOrderPage chooseDepoAccount() {
+        List<WebElement> depoAccountList = driver.findElements(
+                By.xpath("//span[@class = 'select__inner']/button[@role= 'button']"));
+        depoAccountList.get(1).click();
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(depoAccount));
+        depoAccount.click();
+        return new DocumentsOrderPage(driver);
+    }
 
 
     public DocumentsOrderPage chooseWayToGetOffice() {
@@ -160,6 +193,12 @@ public class DocumentsOrderPage extends BasePage {
         cityField.sendKeys("Чебоксары");
         officeField.sendKeys("ул Ярославская, д.27");
         commentField.sendKeys("Тестовый комментарий");
+        return new DocumentsOrderPage(driver);
+    }
+
+    public DocumentsOrderPage clickOfferReportsButton() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(offerReportsButton));
+        offerReportsButton.click();
         return new DocumentsOrderPage(driver);
     }
 
