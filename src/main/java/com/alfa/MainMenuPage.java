@@ -62,7 +62,6 @@ public class MainMenuPage extends BasePage {
 
     public MainMenuPage checkEmailWindow() throws InterruptedException {
         Thread.sleep(4000);
-//        webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
         if (isDisplayed()) {
             webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
             emailWindowCloseButton.click();

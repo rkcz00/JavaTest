@@ -35,7 +35,7 @@ public class DocumentsTest {
 
     @Test
     @DisplayName("Проверка заказа брокерского отчета")
-    void checkReportOrder() {
+    void checkBrokerageReportOrder() {
 
         new TaxesInfoPage(driver)
                 .chooseDocumentOrderTab()
@@ -50,6 +50,43 @@ public class DocumentsTest {
                 .checkFinalSuccessNotify();
 
     }
+
+    @Test
+    @DisplayName("Проверка заказа справки-расчета")
+    void checkReferenceCalculationReportOrder() {
+
+        new TaxesInfoPage(driver)
+                .chooseDocumentOrderTab()
+                .chooseReportDocument()
+                .chooseReferenceCalculationReport()
+                .chooseWayToGetOffice()
+                .insertOfficeFields()
+                .clickOfferDocumentsButton()
+                .checkFirstSuccessNotify()
+                .chooseWayToGetPost()
+                .clickOfferDocumentsButton()
+                .checkFinalSuccessNotify();
+
+    }
+
+    @Test
+    @DisplayName("Проверка заказа детального расчета")
+    void checkdetailedСalculationReportOrder() {
+
+        new TaxesInfoPage(driver)
+                .chooseDocumentOrderTab()
+                .chooseReportDocument()
+                .chooseDetailedСalculationReport()
+                .chooseWayToGetOffice()
+                .insertOfficeFields()
+                .clickOfferDocumentsButton()
+                .checkFirstSuccessNotify()
+                .chooseWayToGetPost()
+                .clickOfferDocumentsButton()
+                .checkFinalSuccessNotify();
+
+    }
+
 
     @AfterEach
     void quitBrowser() {
