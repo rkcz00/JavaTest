@@ -25,7 +25,7 @@ public class ArbitraryOrdersTests {
 
 
         new LoginPage(driver)
-                .login("t_eq_bespalov_st", "Test123")
+                .login("t_eq_prohorov_ie", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

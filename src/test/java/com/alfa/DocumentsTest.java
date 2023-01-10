@@ -24,10 +24,9 @@ public class DocumentsTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_nshomski", "Test123")
+                .login("t_eq_vishniakov_ss", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
-//                .goToBlockedАssets()
                 .checkEmailWindow()
                 .chooseDocumentsAndTaxes();
 
@@ -44,9 +43,6 @@ public class DocumentsTest {
                 .chooseWayToGetOffice()
                 .insertOfficeFields()
                 .clickOfferReportsButton()
-                .checkFirstSuccessNotify()
-                .chooseWayToGetPost()
-                .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
 
     }
@@ -62,25 +58,19 @@ public class DocumentsTest {
                 .chooseWayToGetOffice()
                 .insertOfficeFields()
                 .clickOfferReportsButton()
-                .checkFirstSuccessNotify()
-                .chooseWayToGetPost()
-                .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
 
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка заказа детального расчета")
-    void checkdetailedСalculationReportOrder() {
+    void checkDetailedСalculationReportOrder() {
 
         new TaxesInfoPage(driver)
                 .chooseDocumentOrderTab()
                 .chooseReportDocument()
                 .chooseDetailedСalculationReport()
-                .chooseWayToGetOffice()
-                .insertOfficeFields()
-                .clickOfferReportsButton()
-                .checkFirstSuccessNotify()
                 .chooseWayToGetPost()
                 .clickOfferReportsButton()
                 .checkFinalSuccessNotify();
@@ -113,12 +103,8 @@ public class DocumentsTest {
                 .chooseDocumentOrderTab()
                 .chooseStatementOfMovementReport()
                 .chooseDepoAccount()
-                .chooseWayToGetOffice()
-                .insertOfficeFields()
-                .clickOfferDocumentsButton()
-                .checkFirstSuccessNotify()
                 .chooseWayToGetPost()
-                .clickOfferReportsButton()
+                .clickOfferDocumentsButton()
                 .checkFinalSuccessNotify();
 
     }

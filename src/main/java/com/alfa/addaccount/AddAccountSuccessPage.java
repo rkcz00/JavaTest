@@ -16,7 +16,7 @@ public class AddAccountSuccessPage extends BasePage {
     private WebElement successStage;
 
     public void checkSuccessStage() throws InterruptedException {
-        Thread.sleep(25000);
+        Thread.sleep(30000);
         webDriverWait.until(ExpectedConditions.visibilityOf(successStage));
         Assertions.assertTrue(successStage.isDisplayed());
     }

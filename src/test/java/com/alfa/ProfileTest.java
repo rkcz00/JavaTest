@@ -26,7 +26,7 @@ public class ProfileTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_bespalov_st", "Test123")
+                .login("t_eq_ezmaslov", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

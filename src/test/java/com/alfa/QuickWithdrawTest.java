@@ -33,7 +33,7 @@ public class QuickWithdrawTest {
 
     @Test
     @DisplayName("Проверка корректности быстрого вывода")
-    void checkQuickWithdraw() {
+    void  checkQuickWithdraw() {
 
         new MainPage(driver)
                 .insertFields()

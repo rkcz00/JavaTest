@@ -53,10 +53,10 @@ public class AuthorizeTest {
     void passwordRecoveryTest() throws InterruptedException {
 
         new LoginPage(driver).restorePassClick()
-                .insertSurname("ВИНОГРАДОВ")
-                .insertName("ДИНО")
-                .insertSecondName("СОЛОМОНОВИЧ")
-                .insertPhone("9058053797")
+                .insertSurname("КОРОЛЁВ")
+                .insertName("КУЗЬМА")
+                .insertSecondName("ДАВИДОВИЧ")
+                .insertPhone("9058674000")
                 .clickRestorePassButton()
                 .sendPassportSms()
                 .insertNewPassword("Test123")
