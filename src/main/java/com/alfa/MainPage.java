@@ -47,7 +47,6 @@ public class MainPage extends BasePage {
     public MainMenuPage closeWelcomePopUp() {
         webDriverWait.until(ExpectedConditions.visibilityOf(newUserPopUp));
         List<WebElement> rialtoList = driver.findElements(By.xpath("//a[@class='link guide-step__close link_size_m link_flex link_theme_alfa-on-white']"));
-        Actions actions = new Actions(driver);
         actions.moveToElement(rialtoList.get(1)).click().build().perform();
         return new MainMenuPage(driver);
     }
@@ -66,7 +65,6 @@ public class MainPage extends BasePage {
     public MainPage insertFields() {
         WebElement element = position;
         WebElement element1 = amount;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
 
         List<WebElement> rialtoList = driver.findElements(

@@ -25,7 +25,6 @@ public class AddAccountNewDocumentsPage extends BasePage {
     public AddAccountNewDocumentsPage agreeCheckBoxClick() {
         webDriverWait.until(ExpectedConditions.visibilityOf(signTitle));
         WebElement element = agreeCheckBox;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new AddAccountNewDocumentsPage(driver);
     }

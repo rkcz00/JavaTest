@@ -72,7 +72,6 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage goToBlockedАssets() {
         webDriverWait.until(ExpectedConditions.visibilityOf(goToBlockedАssetsButton));
         WebElement element = goToBlockedАssetsButton;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new MainMenuPage(driver);
     }
@@ -104,7 +103,6 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage chooseOpenNewAccount() {
         webDriverWait.until(ExpectedConditions.visibilityOf(openNewAccountButton));
         WebElement element = openNewAccountButton;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new MainMenuPage(driver);
     }
@@ -112,7 +110,6 @@ public class MainMenuPage extends BasePage {
     public ContactInfoPage chooseProfile() {
         webDriverWait.until(ExpectedConditions.visibilityOf(profileButton));
         WebElement element = profileButton;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new ContactInfoPage(driver);
     }
@@ -126,7 +123,6 @@ public class MainMenuPage extends BasePage {
     public ArbitraryOrders chooseArbitaryOrder() {
         webDriverWait.until(ExpectedConditions.visibilityOf(arbitaryOrderButton));
         WebElement element = arbitaryOrderButton;
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         return new ArbitraryOrders(driver);
     }

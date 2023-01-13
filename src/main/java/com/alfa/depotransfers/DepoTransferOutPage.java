@@ -16,40 +16,40 @@ public class DepoTransferOutPage extends BasePage {
     @FindBy(xpath = "//a[.= 'Списание']")
     private WebElement withdrawButton;
 
-    @FindBy(xpath = "//span[@class='select-button__content'][.='Выберите позицию']")
-    private WebElement choosePositionField;
+    @FindBy(xpath = "//span[.= 'Продолжить']")
+    private WebElement nextButton;
 
-    @FindBy(xpath = "//div[.='Портфель 1']")
-    private WebElement accountNum;
+    @FindBy(xpath = "//span[.= 'Выберите место хранения']")
+    private WebElement placeHolder;
 
-    @FindBy(id = "security-name")
-    private WebElement securityNameField;
+    @FindBy(xpath = "//div[.= 'НРД (Московская биржа)']")
+    private WebElement nrd;
 
-    @FindBy(id = "security-amount")
-    private WebElement securityAmountField;
+    @FindBy(xpath = "//textarea[@name = 'counterpartyPlace']")
+    private WebElement counterpartyName;
 
-    @FindBy(xpath = "//div[.='RU000A0JNAB6 / 1-01-08902-A']")
-    private WebElement securityIsinName;
+    @FindBy(xpath = "//input[@name = 'depoAccount']")
+    private WebElement depoAccount;
 
-    @FindBy(xpath = "//button[@class='select-button select-button_size_m select-button_theme_alfa-on-white']/span/span[.='Выберите место хранения']")
-    private WebElement securityStorage;
+    @FindBy(xpath = "//input[@name = 'depoSection']")
+    private WebElement depoSection;
 
-    @FindBy(xpath = "//div[.='АО Альфа-Банк']")
-    private WebElement securityAlfaStorage;
+    @FindBy(xpath = "//input[@name = 'depoCode']")
+    private WebElement depoCode;
 
-    @FindBy(id = "withdraw-despository-bank-broker-name")
-    private WebElement withdrawDepoBrokerNameField;
+    @FindBy(xpath = "//input[contains(@id, 'downs')]")
+    private WebElement securityField;
 
-    @FindBy(id = "withdraw-depo-account-num")
-    private WebElement withdrawDepoAccountNameField;
+    @FindBy(xpath = "//div[.= 'Энел Россия, 1 в., 1-01-50077-A / RU000A0F5UN3']")
+    private WebElement paper;
 
-    @FindBy(id = "withdraw-tariff-checkbox")
-    private WebElement withdrawTarifCheckBox;
+    @FindBy(xpath = "//input[@aria-label = 'Количество']")
+    private WebElement countFiled;
 
-    @FindBy(id = "withdraw-send-transfer-request")
-    private WebElement withdrawSendTransferButton;
+    @FindBy(xpath = "//span[.= 'Подать поручение']")
+    private WebElement sendOrderButton;
 
-    @FindBy(xpath = "//div[@class='notification__content']/div/span[.='Поручение принято к исполнению']")
+    @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
     private WebElement successNotify;
 
     public DepoTransferOutPage chooseWithdraw() {
@@ -58,49 +58,62 @@ public class DepoTransferOutPage extends BasePage {
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage choosePosition() {
-        webDriverWait.until(ExpectedConditions.visibilityOf(choosePositionField));
-        choosePositionField.click();
-        webDriverWait.until(ExpectedConditions.visibilityOf(accountNum));
-        accountNum.click();
-        securityNameField.click();
+    public DepoTransferOutPage nextButtonClick() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
+        Thread.sleep(1000);
+        actions.moveToElement(nextButton).click().build().perform();
+        return new DepoTransferOutPage(driver);
+    }
+
+    public DepoTransferOutPage selectPlaceHolder() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
+        Thread.sleep(1000);
+        actions.moveToElement(placeHolder).click().build().perform();
+        return new DepoTransferOutPage(driver);
+    }
+
+    public DepoTransferOutPage chooseNrd() throws InterruptedException {
+        Thread.sleep(1000);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(nrd));
+        actions.moveToElement(nrd).click().build().perform();
+        return new DepoTransferOutPage(driver);
+    }
+
+    public DepoTransferOutPage insertCounterPartyFields() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(counterpartyName));
+        counterpartyName.sendKeys("ООО «АТОН»");
+        depoAccount.sendKeys("HL1212116750");
+        depoSection.sendKeys("36MC0031400000F00");
+        depoCode.sendKeys("MC0031400000");
         return new DepoTransferOutPage(driver);
     }
 
     public DepoTransferOutPage chooseSecurity() {
-        webDriverWait.until(ExpectedConditions.visibilityOf(securityIsinName));
-        securityIsinName.click();
-        securityAmountField.sendKeys("11");
+        webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
+        securityField.sendKeys("Энел");
+        webDriverWait.until(ExpectedConditions.visibilityOf(paper));
+        paper.click();
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage chooseCounterparty() {
-        securityStorage.click();
-        webDriverWait.until(ExpectedConditions.visibilityOf(securityAlfaStorage));
-        securityAlfaStorage.click();
-        withdrawDepoBrokerNameField.sendKeys("Атон");
-        withdrawDepoAccountNameField.sendKeys("1111ОHTRRRR");
+    public DepoTransferOutPage insertCountFiled() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(countFiled));
+        countFiled.sendKeys("1");
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage clickWithDrawTarifCheckbox() {
-        WebElement element = withdrawTarifCheckBox;
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().build().perform();
+    public DepoTransferOutPage sendOrderButtonClick() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(sendOrderButton));
+        actions.moveToElement(sendOrderButton).click().build().perform();
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferInPage clickTransferButton() {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(withdrawSendTransferButton));
-        withdrawSendTransferButton.click();
-        return new DepoTransferInPage(driver);
-    }
-
-    public DepoTransferInPage checkSuccessNotify() {
+    public DepoTransferOutPage checkSuccessNotify() {
         webDriverWait.until(ExpectedConditions.visibilityOf(successNotify));
         Assertions.assertTrue(successNotify.isDisplayed());
-        return new DepoTransferInPage(driver);
+        return new DepoTransferOutPage(driver);
     }
+
 }
 
 

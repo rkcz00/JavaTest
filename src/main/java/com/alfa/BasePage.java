@@ -11,7 +11,7 @@ public class BasePage {
 
     protected WebDriver driver;
     protected WebDriverWait webDriverWait;
-    Actions actions;
+    public Actions actions;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

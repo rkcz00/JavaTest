@@ -69,7 +69,6 @@ public class MarginalTestPage extends BasePage {
 
         webDriverWait.until(ExpectedConditions.visibilityOf(checkQuestion(question1_1, question1_2)));
         WebElement element = selectAnswer(question1_1, question1_1, answer1_1, answer1_2);
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         nextButton.click();
 
@@ -81,7 +80,6 @@ public class MarginalTestPage extends BasePage {
 
         webDriverWait.until(ExpectedConditions.visibilityOf(checkQuestion(question1_1, question1_2)));
         WebElement element = selectAnswer(question1_1, question1_1, answer1_1, answer1_2);
-        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().build().perform();
         nextButton.click();
 

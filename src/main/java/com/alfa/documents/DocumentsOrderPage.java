@@ -170,9 +170,7 @@ public class DocumentsOrderPage extends BasePage {
 
     public DocumentsOrderPage chooseWayToGetOffice() {
         webDriverWait.until(ExpectedConditions.visibilityOf(wayToGetList));
-        WebElement element = wayToGetList;
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().build().perform();
+        actions.moveToElement(wayToGetList).click().build().perform();
         webDriverWait.until(ExpectedConditions.visibilityOf(wayToGetOffice));
         wayToGetOffice.click();
         return new DocumentsOrderPage(driver);
@@ -180,9 +178,7 @@ public class DocumentsOrderPage extends BasePage {
 
     public DocumentsOrderPage chooseWayToGetPost() {
         webDriverWait.until(ExpectedConditions.visibilityOf(wayToGetList));
-        WebElement element = wayToGetList;
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().build().perform();
+        actions.moveToElement(wayToGetList).click().build().perform();
         webDriverWait.until(ExpectedConditions.visibilityOf(wayToGetPost));
         wayToGetPost.click();
         return new DocumentsOrderPage(driver);
