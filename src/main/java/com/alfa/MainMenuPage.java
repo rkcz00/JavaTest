@@ -33,6 +33,9 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//*[text()='Ценные бумаги']")
     private WebElement mainMenuSecurities;
 
+    @FindBy(xpath = "//*[text()='Электронная подпись']")
+    private WebElement electronicSignature;
+
     @FindBy(xpath = "//*[text()='Ещё']")
     private WebElement moreButton;
 
@@ -130,6 +133,12 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage chooseDocumentsAndTaxes() {
         webDriverWait.until(ExpectedConditions.visibilityOf(documentsAndTaxes));
         documentsAndTaxes.click();
+        return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage chooseElectronicSignature() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(electronicSignature));
+        electronicSignature.click();
         return new MainMenuPage(driver);
     }
 }

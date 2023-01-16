@@ -19,9 +19,6 @@ public class DepoTransferInPage extends BasePage {
     @FindBy(xpath = "//span[.= 'Выберите место хранения']")
     private WebElement placeHolder;
 
-//    @FindBy(xpath = "//div[contains(@class, 'form-control__input_')]")
-//    private WebElement placeHolder;
-
     @FindBy(xpath = "//div[.= 'Реестр']")
     private WebElement reestr;
 

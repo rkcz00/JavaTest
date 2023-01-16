@@ -51,6 +51,12 @@ public class SettingsOption {
         );
         chromeOptions.setExperimentalOption("prefs", singletonMap("protocol_handler.allowed_origin_protocol_pairs", singletonMap("https://ip12.alfadirect.ru", singletonMap("adir-test", true))));
 
+        prefs.put(
+                "protocol_handler.allowed_origin_protocol_pairs",
+                singletonMap("https://lk-fb-int.alfadirect.ru", singletonMap("adir-test", true))
+        );
+        chromeOptions.setExperimentalOption("prefs", singletonMap("protocol_handler.allowed_origin_protocol_pairs", singletonMap("https://lk-fb-int.alfadirect.ru", singletonMap("adir-test", true))));
+
         chromeOptions.addArguments("window-size=1280,720");
 //        chromeOptions.addArguments("--headless");
 //
