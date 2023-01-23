@@ -3,13 +3,9 @@ package com.alfa;
 import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
 
-public class ArbitraryOrdersTests {
-
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
+public class ArbitraryOrdersTests extends BaseTest {
 
 
     @BeforeAll

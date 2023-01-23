@@ -6,14 +6,9 @@ import com.alfa.moneytransfers.InteriorPage;
 import com.alfa.moneytransfers.OtherBankPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
 
-public class TransfersTest {
-
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
-
+public class TransfersTest extends BaseTest {
 
     @BeforeAll
     static void registerDriver() {

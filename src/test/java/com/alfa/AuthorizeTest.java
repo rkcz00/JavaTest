@@ -4,12 +4,9 @@ import com.alfa.authorize.LoginPage;
 import com.alfa.authorize.ResetPassPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
-public class AuthorizeTest {
+public class AuthorizeTest extends BaseTest {
 
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
     @BeforeAll
     static void registerDriver() {

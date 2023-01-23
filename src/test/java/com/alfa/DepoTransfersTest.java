@@ -3,16 +3,13 @@ package com.alfa;
 
 import com.alfa.authorize.LoginPage;
 import com.alfa.depotransfers.DepoTransferInPage;
+import com.alfa.depotransfers.DepoTransferInnerPage;
 import com.alfa.depotransfers.DepoTransferOutPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
 
-public class DepoTransfersTest {
-
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
+public class DepoTransfersTest extends BaseTest {
 
 
     @BeforeAll
@@ -77,18 +74,21 @@ public class DepoTransfersTest {
     }
 
     @Test
-    @Disabled
-    @DisplayName("Проверка пакетного зачисления ЦБ")
-    void depoTransferMassIn() {
+    @DisplayName("Проверка перевода ЦБ внутри счета")
+    void depoTransferInner() {
 
-//        new DepoTransferInPage(driver)
-//                .selectBatchEnrollment()
-//                .selectSubAccount()
-//                .insertMassSecurity()
-//                .chooseMassCounterparty()
-//                .clickTransferButton();
-//
-//
+        new DepoTransferInnerPage(driver)
+                .chooseInnerTransfers()
+                .nextButtonClick()
+                .chooseSecurity()
+                .insertCountFiled()
+                .nextButtonClick()
+                .nextButtonClick()
+                .sendOrderButtonClick()
+                .checkSuccessNotify();
+
+
+
     }
 
 

@@ -7,13 +7,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
-public class RegistrationFirmTest {
+public class RegistrationFirmTest  {
 
     WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru/registration-firm";
+    public final static String LK_TEST_URL = "https://lk-fb-int.alfadirect.ru/registration-firm";
+//    public final static String LK_TEST_URL = "https://ip12.alfadirect.ru/registration-firm";
 
     @BeforeAll
     static void registerDriver() {
+
+
         WebDriverManager.chromedriver().setup();
 
     }

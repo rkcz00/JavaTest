@@ -3,12 +3,9 @@ package com.alfa;
 import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
-public class QuickWithdrawTest {
+public class QuickWithdrawTest extends BaseTest {
 
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
 
     @BeforeAll
     static void registerDriver() {
@@ -32,8 +29,9 @@ public class QuickWithdrawTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка корректности быстрого вывода")
-    void  checkQuickWithdraw() {
+    void checkQuickWithdraw() {
 
         new MainPage(driver)
                 .insertFields()

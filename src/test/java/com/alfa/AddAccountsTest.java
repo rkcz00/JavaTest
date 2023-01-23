@@ -6,13 +6,8 @@ import com.alfa.addaccount.AddIisAccountPage;
 import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
-public class AddAccountsTest {
-
-
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://ip12.alfadirect.ru";
+public class AddAccountsTest extends BaseTest {
 
 
     @BeforeAll
@@ -28,7 +23,7 @@ public class AddAccountsTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_koroliov_kd", "Test123")//нужен новый логин на каждый тест
+                .login("t_eq_nzkolesnikov", "Test123")//нужен новый логин на каждый тест
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

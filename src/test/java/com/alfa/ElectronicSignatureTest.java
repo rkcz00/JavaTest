@@ -3,13 +3,8 @@ package com.alfa;
 import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 
-public class ElectronicSignatureTest {
-
-    WebDriver driver;
-    private final static String LK_TEST_URL = "https://lk-fb-int.alfadirect.ru/";
-
+public class ElectronicSignatureTest extends BaseTest {
 
     @BeforeAll
     static void registerDriver() {
@@ -53,6 +48,8 @@ public class ElectronicSignatureTest {
         new LoginPage(driver).sendSms();
         new ElectronicSignature(driver).checkSuccessNotify();
     }
+
+
 
     @AfterEach
     void quitBrowser() {
