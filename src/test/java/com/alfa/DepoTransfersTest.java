@@ -55,6 +55,29 @@ public class DepoTransfersTest extends BaseTest {
     }
 
     @Test
+    @Disabled
+    @DisplayName("Проверка пакетного зачисления ЦБ")
+    void depoMassTransferIn() throws InterruptedException {
+
+        new DepoTransferInPage(driver)
+                .nextButtonClick()
+                .selectPlaceHolder()
+//                .chooseReestr()
+//                .sendPesonalAccount()
+                .chooseNrd()
+                .insertCounterPartyFields()
+                .nextButtonClick()
+                .chooseSecurity()
+                .insertCountFiled()
+                .addSecurities()
+                .nextButtonClick()
+                .sendOrderButtonClick()
+                .checkSuccessNotify();
+
+
+    }
+
+    @Test
     @DisplayName("Проверка списания ЦБ")
     void depoTransferOut() throws InterruptedException {
 
