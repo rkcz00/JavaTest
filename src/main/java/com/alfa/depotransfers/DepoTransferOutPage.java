@@ -12,6 +12,9 @@ public class DepoTransferOutPage extends BasePage {
         super(driver);
     }
 
+    @FindBy(xpath = "//span[contains(@class, 'form-control__labelInner_')]/span[.= 'Место хранения']")
+    private WebElement placeHolder;
+
     @FindBy(xpath = "//a[.= 'Списание']")
     private WebElement withdrawButton;
 
@@ -19,7 +22,7 @@ public class DepoTransferOutPage extends BasePage {
     private WebElement nextButton;
 
     @FindBy(xpath = "//span[.= 'Выберите место хранения']")
-    private WebElement placeHolder;
+    private WebElement choosePlaceHolder;
 
 //    @FindBy(xpath = "//div[.= 'НРД (Московская биржа)']")
 //    private WebElement nrd;
@@ -57,6 +60,13 @@ public class DepoTransferOutPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
     private WebElement successNotify;
 
+    public DepoTransferOutPage selectFirstPlaceHolder() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.visibilityOf(placeHolder));
+        Thread.sleep(2000);
+        actions.moveToElement(placeHolder).click().build().perform();
+        return new DepoTransferOutPage(driver);
+    }
+
     public DepoTransferOutPage chooseWithdraw() {
         webDriverWait.until(ExpectedConditions.visibilityOf(withdrawButton));
         withdrawButton.click();
@@ -70,10 +80,10 @@ public class DepoTransferOutPage extends BasePage {
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage selectPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
+    public DepoTransferOutPage selectSecondPlaceHolder() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
         Thread.sleep(1000);
-        actions.moveToElement(placeHolder).click().build().perform();
+        actions.moveToElement(choosePlaceHolder).click().build().perform();
         return new DepoTransferOutPage(driver);
     }
 

@@ -40,8 +40,10 @@ public class DepoTransfersTest extends BaseTest {
     void depoTransferIn() throws InterruptedException {
 
         new DepoTransferInPage(driver)
+                .selectFirstPlaceHolder()
+                .chooseNrd()
                 .nextButtonClick()
-                .selectPlaceHolder()
+                .selectSecondPlaceHolder()
                 .chooseReestr()
                 .sendPesonalAccount()
                 .nextButtonClick()
@@ -60,8 +62,10 @@ public class DepoTransfersTest extends BaseTest {
     void depoMassTransferIn() throws InterruptedException {
 
         new DepoTransferInPage(driver)
+                .selectFirstPlaceHolder()
+                .chooseNrd()
                 .nextButtonClick()
-                .selectPlaceHolder()
+                .selectSecondPlaceHolder()
 //                .chooseReestr()
 //                .sendPesonalAccount()
                 .chooseNrd()
@@ -83,8 +87,10 @@ public class DepoTransfersTest extends BaseTest {
 
         new DepoTransferOutPage(driver)
                 .chooseWithdraw()
+                .selectFirstPlaceHolder()
+                .chooseNrd()
                 .nextButtonClick()
-                .selectPlaceHolder()
+                .selectSecondPlaceHolder()
                 .chooseNrd()
                 .insertCounterPartyFields()
                 .nextButtonClick()

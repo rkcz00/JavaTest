@@ -12,12 +12,14 @@ public class DepoTransferInPage extends BasePage {
         super(driver);
     }
 
+    @FindBy(xpath = "//span[contains(@class, 'form-control__labelInner_')]/span[.= 'Место хранения']")
+    private WebElement placeHolder;
 
     @FindBy(xpath = "//span[.= 'Продолжить']")
     private WebElement nextButton;
 
     @FindBy(xpath = "//span[.= 'Выберите место хранения']")
-    private WebElement placeHolder;
+    private WebElement choosePlaceHolder;
 
     @FindBy(xpath = "//div[.= 'Реестр']")
     private WebElement reestr;
@@ -77,6 +79,13 @@ public class DepoTransferInPage extends BasePage {
     private WebElement depoCode;
 
 
+    public DepoTransferInPage selectFirstPlaceHolder() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
+        Thread.sleep(1000);
+        actions.moveToElement(placeHolder).click().build().perform();
+        return new DepoTransferInPage(driver);
+    }
+
     public DepoTransferInPage nextButtonClick() throws InterruptedException {
         webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
         Thread.sleep(1000);
@@ -84,10 +93,10 @@ public class DepoTransferInPage extends BasePage {
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage selectPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
+    public DepoTransferInPage selectSecondPlaceHolder() throws InterruptedException {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
         Thread.sleep(1000);
-        actions.moveToElement(placeHolder).click().build().perform();
+        actions.moveToElement(choosePlaceHolder).click().build().perform();
         return new DepoTransferInPage(driver);
     }
 
@@ -115,7 +124,6 @@ public class DepoTransferInPage extends BasePage {
     }
 
 
-
     public DepoTransferInPage insertCountFiled() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(countFiled));
         countFiled.sendKeys("1");
@@ -123,12 +131,11 @@ public class DepoTransferInPage extends BasePage {
     }
 
     public DepoTransferInPage addSecurities() throws InterruptedException {
+
         webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecuritiesButton));
         actions.moveToElement(addSecuritiesButton).click().build().perform();
-//        addSecuritiesButton.click();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
         actions.moveToElement(addSecurityButton).click().build().perform();
-//        addSecurityButton.click();
         Thread.sleep(1000);
         webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
         securityField.sendKeys("Bristol");
@@ -137,10 +144,8 @@ public class DepoTransferInPage extends BasePage {
         insertCountFiled();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(forEnrollmentButton));
         actions.moveToElement(forEnrollmentButton).click().build().perform();
-//        forEnrollmentButton.click();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
         actions.moveToElement(addSecurityButton).click().build().perform();
-//        addSecurityButton.click();
         Thread.sleep(1000);
         webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
         securityField.sendKeys("Ver");
@@ -148,10 +153,9 @@ public class DepoTransferInPage extends BasePage {
         verizonPaper.click();
         insertCountFiled();
         actions.moveToElement(forEnrollmentButton).click().build().perform();
-//        forEnrollmentButton.click();
+
         return new DepoTransferInPage(driver);
     }
-
 
 
     public DepoTransferInPage sendOrderButtonClick() {
