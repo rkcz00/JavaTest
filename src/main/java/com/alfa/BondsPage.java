@@ -1,9 +1,12 @@
 package com.alfa;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class BondsPage extends BasePage{
     public BondsPage(WebDriver driver) {
@@ -28,7 +31,9 @@ public class BondsPage extends BasePage{
 
     public BondsPage clickPublicOfferingButton(){
         webDriverWait.until(ExpectedConditions.visibilityOf(isinText));
-        publicOfferingButton.click();
+        List<WebElement> rialtoList = driver.findElements(By.xpath("//button[@id = 'public-offering-item-action']/span[.= 'Направить поручение']"));
+        actions.moveToElement(rialtoList.get(8)).build().perform();
+//        publicOfferingButton.click();
         return new BondsPage(driver);
     }
 

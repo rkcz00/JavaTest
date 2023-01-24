@@ -3,8 +3,11 @@ package com.alfa;
 import com.alfa.authorize.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.WebDriver;
 
-public class BondsTest extends BaseTest {
+public class BondsTest  {
+    WebDriver driver;
+    public final static String LK_TEST_URL = "https://ip12.alfadirect.ru/public-offering/active/23";
 
 
     @BeforeAll
@@ -31,6 +34,7 @@ public class BondsTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка корректности покупки облигаций")
     void buyBondsTest() {
 

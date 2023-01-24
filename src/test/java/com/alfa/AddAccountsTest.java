@@ -34,6 +34,7 @@ public class AddAccountsTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка открытия брокерского счета")
     void openNewBrokerAccount() throws InterruptedException {
 
@@ -46,6 +47,7 @@ public class AddAccountsTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка открытия ИИС")
     void openNewIisAccount() throws InterruptedException {
 

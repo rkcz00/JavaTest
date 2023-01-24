@@ -24,7 +24,10 @@ public class DepoTransferOutPage extends BasePage {
 //    @FindBy(xpath = "//div[.= 'НРД (Московская биржа)']")
 //    private WebElement nrd;
 
-    @FindBy(xpath = "//div[.= 'НРД']")
+//    @FindBy(xpath = "//div[.= 'НРД']")
+//    private WebElement nrd;
+
+    @FindBy(xpath = "//div[contains(text(), 'НРД')]")
     private WebElement nrd;
 
     @FindBy(xpath = "//textarea[@name = 'counterpartyPlace']")
