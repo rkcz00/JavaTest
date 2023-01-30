@@ -1,12 +1,10 @@
 package com.alfa;
 
-import java.util.HashMap;
-
 public class Main {
     public static void main(String[] args) {
 
         for (int i = 0; i <= 10; i++) {
-            int a =  (int) (Math.random() * 900+1000);
+            int a = (int) (Math.random() * 90 + 100);
             System.out.println(a);
         }
 

@@ -60,6 +60,9 @@ public class MainMenuPage extends BasePage {
 //    @FindBy(xpath = "//div[contains(@class, 'email-verification-modal')]/button[@class= 'modal__close']")
 //    private WebElement closeBlockedDepoButton;
 
+    @FindBy(xpath = "//*[text()='Сведения о счете']")
+    private WebElement accountInfo;
+
     @FindBy(xpath = "//span/span[.='Перейти к списку активов']")
     private WebElement goToBlockedАssetsButton;
 
@@ -139,6 +142,12 @@ public class MainMenuPage extends BasePage {
     public MainMenuPage chooseElectronicSignature() {
         webDriverWait.until(ExpectedConditions.visibilityOf(electronicSignature));
         electronicSignature.click();
+        return new MainMenuPage(driver);
+    }
+
+    public MainMenuPage chooseAccountInfo() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(accountInfo));
+        accountInfo.click();
         return new MainMenuPage(driver);
     }
 }

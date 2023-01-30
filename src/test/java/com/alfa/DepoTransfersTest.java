@@ -57,7 +57,6 @@ public class DepoTransfersTest extends BaseTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("Проверка пакетного зачисления ЦБ")
     void depoMassTransferIn() throws InterruptedException {
 
