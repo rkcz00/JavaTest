@@ -49,6 +49,7 @@ public class DepoTransfersTest extends BaseTest {
                 .nextButtonClick()
                 .chooseSecurity()
                 .insertCountFiled()
+                .insertReference()
                 .nextButtonClick()
                 .sendOrderButtonClick()
                 .checkSuccessNotify();

@@ -78,6 +78,9 @@ public class DepoTransferInPage extends BasePage {
     @FindBy(xpath = "//input[@name = 'depoCode']")
     private WebElement depoCode;
 
+    @FindBy(xpath = "//input[@name = 'reference']")
+    private WebElement referenceField;
+
 
     public DepoTransferInPage selectFirstPlaceHolder() throws InterruptedException {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
@@ -127,6 +130,12 @@ public class DepoTransferInPage extends BasePage {
     public DepoTransferInPage insertCountFiled() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(countFiled));
         countFiled.sendKeys("1");
+        return new DepoTransferInPage(driver);
+    }
+
+    public DepoTransferInPage insertReference() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(referenceField));
+        referenceField.sendKeys("AA33JJ");
         return new DepoTransferInPage(driver);
     }
 

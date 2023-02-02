@@ -44,8 +44,8 @@ public class OtherBankPage extends BasePage {
 
     public OtherBankPage insertFields() {
         webDriverWait.until(ExpectedConditions.visibilityOf(bicField));
-        bicField.sendKeys("044525229");
-        accountToField.sendKeys("40444444444444444444");
+        bicField.sendKeys("049706609");
+        accountToField.sendKeys("40817810175004870712");
         purposeOfPaymentLink.click();
         webDriverWait.until(ExpectedConditions.visibilityOf(purposeOfPaymentField));
         purposeOfPaymentField.sendKeys("Тестовое назначение");
