@@ -1,12 +1,16 @@
 package com.alfa.authorize;
 
 import com.alfa.BasePage;
+import com.alfa.OpenAccountPage;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.io.IOException;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
@@ -38,6 +42,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "password-restore")
     private WebElement passRestoreLink;
+
+    @FindBy(id = "open-account")
+    private WebElement openAccountButton;
 
     public LoginPage login(String login, String password) {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id(loginIdLocator)));
@@ -78,5 +85,11 @@ public class LoginPage extends BasePage {
         webDriverWait.until(ExpectedConditions.visibilityOf(passRestoreLink));
         passRestoreLink.click();
         return new RestorePassPage(driver);
+    }
+
+    public OpenAccountPage openaAccountButtonClick() throws IOException, ParseException {
+        webDriverWait.until(ExpectedConditions.visibilityOf(openAccountButton));
+        openAccountButton.click();
+        return new OpenAccountPage(driver);
     }
 }
