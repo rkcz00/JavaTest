@@ -27,6 +27,10 @@ public class ResetPassPage extends BasePage {
     @FindBy(id = "replenishment")
     private WebElement successNotify;
 
+    @FindBy(id = "password-reset-complete-action")
+    private WebElement comInButton;
+
+
     public ResetPassPage insertNewPassword(String newPass) {
         webDriverWait.until(ExpectedConditions.visibilityOf(newPassword));
         newPassword.sendKeys(newPass);
@@ -39,9 +43,15 @@ public class ResetPassPage extends BasePage {
     }
 
 
-    public LoginPage clickResetPassButton() {
+    public ResetPassPage clickResetPassButton() {
         registrationPasswordButton.click();
-        return new LoginPage(driver);
+        return new ResetPassPage(driver);
+    }
+
+    public ResetPassPage comInButtonClick(){
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(comInButton));
+        comInButton.click();
+        return new ResetPassPage(driver);
     }
 
     public void checkSuccessReset() {

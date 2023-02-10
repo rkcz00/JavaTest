@@ -1,7 +1,6 @@
 package com.alfa;
 
 import com.alfa.authorize.LoginPage;
-import com.alfa.authorize.ResetPassPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 
@@ -55,12 +54,16 @@ public class AuthorizeTest extends BaseTest {
                 .insertSecondName("ДАВИДОВИЧ")
                 .insertPhone("9058674000")
                 .clickRestorePassButton()
-                .sendPassportSms()
+                .sendSms()
                 .insertNewPassword("Test123")
                 .insertRepeatPassword("Test123")
                 .clickResetPassButton()
-                .sendSms();
-        new ResetPassPage(driver).checkSuccessReset();
+                .comInButtonClick();
+
+        new LoginPage(driver)
+                .login("t_eq_koroliov_kd", "Test123")
+                .sendSms()
+                .checkSuccessNotify();
 
 
     }
