@@ -64,6 +64,7 @@ public class AuthorizeTest extends BaseTest {
                 .login("t_eq_koroliov_kd", "Test123")
                 .sendSms()
                 .checkSuccessNotify();
+        //reset
 
 
     }
