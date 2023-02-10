@@ -84,7 +84,7 @@ public class SettingsOption {
 //        chromeOptions.addArguments("--incognito");
 //        chromeOptions.addArguments("--disable-popup-blocking");
 //        chromeOptions.addArguments("--safebrowsing-disable-download-protection");
-//        chromeOptions.addArguments("safebrowsing-disable-extension-blacklist");
+//        chromeOptions.addArguments("--safebrowsing-disable-extension-blacklist");
 //        chromeOptions.addArguments("--kiosk-printing");
 //        chromeOptions.addArguments("--disable-extensions");
 //

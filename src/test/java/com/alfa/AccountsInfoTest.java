@@ -21,7 +21,7 @@ public class AccountsInfoTest extends BaseTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_di_ershov", "Test123")
+                .login("t_eq_koroliov_kd", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()
