@@ -18,7 +18,7 @@ public class ElectronicSignatureTest extends BaseTest {
         driver.get(LK_TEST_URL);
 
         new LoginPage(driver)
-                .login("t_eq_gshefimov", "Test123")
+                .login("t_eq_ehabramov", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()

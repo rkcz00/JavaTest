@@ -17,7 +17,7 @@ public class AddAccountsTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
@@ -36,7 +36,7 @@ public class AddAccountsTest extends BaseTest {
     @Test
     @Disabled
     @DisplayName("Проверка открытия брокерского счета")
-    void openNewBrokerAccount() throws InterruptedException {
+    void openNewBrokerAccount() {
 
         new AddBrokerAccountPage(driver)
                 .openBrokerButtonClick()
@@ -49,7 +49,7 @@ public class AddAccountsTest extends BaseTest {
     @Test
     @Disabled
     @DisplayName("Проверка открытия ИИС")
-    void openNewIisAccount() throws InterruptedException {
+    void openNewIisAccount() {
 
         new AddIisAccountPage(driver)
                 .openIisButtonClick()

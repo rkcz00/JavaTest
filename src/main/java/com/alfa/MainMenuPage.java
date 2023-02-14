@@ -66,12 +66,17 @@ public class MainMenuPage extends BasePage {
     @FindBy(xpath = "//span/span[.='Перейти к списку активов']")
     private WebElement goToBlockedАssetsButton;
 
-    public MainMenuPage checkEmailWindow() throws InterruptedException {
-        Thread.sleep(4000);
-        if (isDisplayed()) {
-            webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
-            emailWindowCloseButton.click();
+    public MainMenuPage checkEmailWindow() {
+        try {
+            Thread.sleep(4000);
+            if (isDisplayed()) {
+                webDriverWait.until(ExpectedConditions.visibilityOf(emailWindowCloseButton));
+                emailWindowCloseButton.click();
+            }
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
         }
+
         return new MainMenuPage(driver);
     }
 

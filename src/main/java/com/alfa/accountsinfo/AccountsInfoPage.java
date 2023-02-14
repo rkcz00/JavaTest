@@ -17,22 +17,22 @@ public class AccountsInfoPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//span/span[.= 'Ершов Демид Ильсурович']")
+    @FindBy(xpath = "//span/span[.= 'Крылов Глеб Люциферович']")
     private WebElement owner;
 
-    @FindBy(xpath = "//span[contains(text(), '30601810700021076296')]")
+    @FindBy(xpath = "//span[contains(text(), '30601810000021081677')]")
     private WebElement rubAcc;
 
-    @FindBy(xpath = "//span[contains(text(), '30601840000021076296')]")
+    @FindBy(xpath = "//span[contains(text(), '30601840300021081677')]")
     private WebElement usdAcc;
 
-    @FindBy(xpath = "//span[contains(text(), '30601978600021076296')]")
+    @FindBy(xpath = "//span[contains(text(), '30601978900021081677')]")
     private WebElement eurAcc;
 
-    @FindBy(xpath = "//span[contains(text(), 'Б7LYM1000')]")
+    @FindBy(xpath = "//span[contains(text(), 'БBIOM1000')]")
     private WebElement kcbAcc;
 
-    @FindBy(xpath = "//span[contains(text(), 'Б7LYS1000')]")
+    @FindBy(xpath = "//span[contains(text(), 'БBIOS1000')]")
     private WebElement spbAcc;
 
     @FindBy(xpath = "//a[.= 'Управление счётом']")

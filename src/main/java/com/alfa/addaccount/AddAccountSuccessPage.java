@@ -15,8 +15,13 @@ public class AddAccountSuccessPage extends BasePage {
     @FindBy(xpath = "//div[@class= 'add-account-success__stage-body']")
     private WebElement successStage;
 
-    public void checkSuccessStage() throws InterruptedException {
-        Thread.sleep(30000);
+    public void checkSuccessStage() {
+        try {
+            Thread.sleep(30000);
+        }catch (InterruptedException ex){
+            ex.printStackTrace();
+        }
+
         webDriverWait.until(ExpectedConditions.visibilityOf(successStage));
         Assertions.assertTrue(successStage.isDisplayed());
     }

@@ -20,7 +20,7 @@ public class QuickWithdrawTest extends BaseTest {
 
 
         new LoginPage(driver)
-                .login("t_eq_bespalov_st", "Test123")
+                .login("t_eq_shddenisov", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow();
@@ -29,7 +29,6 @@ public class QuickWithdrawTest extends BaseTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("Проверка корректности быстрого вывода")
     void checkQuickWithdraw() {
 

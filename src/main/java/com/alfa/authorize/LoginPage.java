@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
@@ -55,8 +56,18 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage sendSms() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@inputmode='numeric']")));
-        sendSmsForm.sendKeys("11111");
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(sendSmsForm));
+        List<WebElement> inputField = driver.findElements(By.xpath("//input[@inputmode = 'numeric']"));
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                inputField.get(i).sendKeys("1");
+                Thread.sleep(100);
+            }
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new LoginPage(driver);
     }
 

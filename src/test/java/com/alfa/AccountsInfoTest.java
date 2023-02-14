@@ -15,13 +15,13 @@ public class AccountsInfoTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
 
         new LoginPage(driver)
-                .login("t_eq_koroliov_kd", "Test123")
+                .login("t_eq_glkrilov", "Test123")
                 .sendSms();
         new MainMenuPage(driver)
                 .checkEmailWindow()
