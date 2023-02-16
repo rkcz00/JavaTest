@@ -18,7 +18,7 @@ public class AddAccountSuccessPage extends BasePage {
     public void checkSuccessStage() {
         try {
             Thread.sleep(30000);
-        }catch (InterruptedException ex){
+        } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
 

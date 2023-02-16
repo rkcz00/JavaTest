@@ -46,7 +46,7 @@ public class AuthorizeTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка успешного восстановления пароля")
-    void passwordRecoveryTest() throws InterruptedException {
+    void passwordRecoveryTest()  {
 
         new LoginPage(driver).restorePassClick()
                 .insertSurname("КОРОЛЁВ")

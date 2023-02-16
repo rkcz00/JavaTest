@@ -14,7 +14,7 @@ public class QuickWithdrawTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 

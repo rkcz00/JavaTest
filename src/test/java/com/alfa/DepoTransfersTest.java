@@ -19,7 +19,7 @@ public class DepoTransfersTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
@@ -37,7 +37,7 @@ public class DepoTransfersTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка зачисления ЦБ")
-    void depoTransferIn() throws InterruptedException {
+    void depoTransferIn() {
 
         new DepoTransferInPage(driver)
                 .selectFirstPlaceHolder()
@@ -59,7 +59,7 @@ public class DepoTransfersTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка пакетного зачисления ЦБ")
-    void depoMassTransferIn() throws InterruptedException {
+    void depoMassTransferIn() {
 
         new DepoTransferInPage(driver)
                 .selectFirstPlaceHolder()
@@ -83,7 +83,7 @@ public class DepoTransfersTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка списания ЦБ")
-    void depoTransferOut() throws InterruptedException {
+    void depoTransferOut()  {
 
         new DepoTransferOutPage(driver)
                 .chooseWithdraw()
@@ -115,7 +115,6 @@ public class DepoTransfersTest extends BaseTest {
                 .nextButtonClick()
                 .sendOrderButtonClick()
                 .checkSuccessNotify();
-
 
 
     }

@@ -101,6 +101,7 @@ public class LoginPage extends BasePage {
     public OpenAccountPage openaAccountButtonClick() throws IOException, ParseException {
         webDriverWait.until(ExpectedConditions.visibilityOf(openAccountButton));
         openAccountButton.click();
+
         return new OpenAccountPage(driver);
     }
 }

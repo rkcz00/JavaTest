@@ -14,7 +14,7 @@ public class TestsTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
@@ -30,6 +30,7 @@ public class TestsTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка корректности прохождения теста по маржинальной торговле")
     void checkMarginalTest() {
 

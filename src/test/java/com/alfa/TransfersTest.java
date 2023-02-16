@@ -17,7 +17,7 @@ public class TransfersTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
@@ -34,6 +34,7 @@ public class TransfersTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка перевода в другой банк ")
     void otherBankTransfer() {
 

@@ -13,7 +13,7 @@ public class ElectronicSignatureTest extends BaseTest {
     }
 
     @BeforeEach
-    void setupBrowser() throws InterruptedException {
+    void setupBrowser() {
         driver = SettingsOption.getChromeDriver();
         driver.get(LK_TEST_URL);
 
@@ -48,7 +48,6 @@ public class ElectronicSignatureTest extends BaseTest {
         new LoginPage(driver).sendSms();
         new ElectronicSignature(driver).checkSuccessNotify();
     }
-
 
 
     @AfterEach

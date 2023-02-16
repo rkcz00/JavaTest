@@ -82,31 +82,52 @@ public class DepoTransferInPage extends BasePage {
     private WebElement referenceField;
 
 
-    public DepoTransferInPage selectFirstPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
-        Thread.sleep(1000);
-        actions.moveToElement(placeHolder).click().build().perform();
+    public DepoTransferInPage selectFirstPlaceHolder() {
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(placeHolder));
+            Thread.sleep(1000);
+            actions.moveToElement(placeHolder).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage nextButtonClick() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
-        Thread.sleep(1000);
-        actions.moveToElement(nextButton).click().build().perform();
+    public DepoTransferInPage nextButtonClick() {
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
+            Thread.sleep(1000);
+            actions.moveToElement(nextButton).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage selectSecondPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
-        Thread.sleep(1000);
-        actions.moveToElement(choosePlaceHolder).click().build().perform();
+    public DepoTransferInPage selectSecondPlaceHolder() {
+
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
+            Thread.sleep(1000);
+            actions.moveToElement(choosePlaceHolder).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage chooseReestr() throws InterruptedException {
-        Thread.sleep(1000);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(reestr));
-        actions.moveToElement(reestr).click().build().perform();
+    public DepoTransferInPage chooseReestr() {
+
+        try {
+            Thread.sleep(1000);
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(reestr));
+            actions.moveToElement(reestr).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new DepoTransferInPage(driver);
     }
 
@@ -139,30 +160,32 @@ public class DepoTransferInPage extends BasePage {
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage addSecurities() throws InterruptedException {
-
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecuritiesButton));
-        actions.moveToElement(addSecuritiesButton).click().build().perform();
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
-        actions.moveToElement(addSecurityButton).click().build().perform();
-        Thread.sleep(1000);
-        webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
-        securityField.sendKeys("Bristol");
-        webDriverWait.until(ExpectedConditions.visibilityOf(bristolPaper));
-        bristolPaper.click();
-        insertCountFiled();
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(forEnrollmentButton));
-        actions.moveToElement(forEnrollmentButton).click().build().perform();
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
-        actions.moveToElement(addSecurityButton).click().build().perform();
-        Thread.sleep(1000);
-        webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
-        securityField.sendKeys("Ver");
-        webDriverWait.until(ExpectedConditions.visibilityOf(verizonPaper));
-        verizonPaper.click();
-        insertCountFiled();
-        actions.moveToElement(forEnrollmentButton).click().build().perform();
-
+    public DepoTransferInPage addSecurities() {
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecuritiesButton));
+            actions.moveToElement(addSecuritiesButton).click().build().perform();
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
+            actions.moveToElement(addSecurityButton).click().build().perform();
+            Thread.sleep(1000);
+            webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
+            securityField.sendKeys("Bristol");
+            webDriverWait.until(ExpectedConditions.visibilityOf(bristolPaper));
+            bristolPaper.click();
+            insertCountFiled();
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(forEnrollmentButton));
+            actions.moveToElement(forEnrollmentButton).click().build().perform();
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(addSecurityButton));
+            actions.moveToElement(addSecurityButton).click().build().perform();
+            Thread.sleep(1000);
+            webDriverWait.until(ExpectedConditions.visibilityOf(securityField));
+            securityField.sendKeys("Ver");
+            webDriverWait.until(ExpectedConditions.visibilityOf(verizonPaper));
+            verizonPaper.click();
+            insertCountFiled();
+            actions.moveToElement(forEnrollmentButton).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         return new DepoTransferInPage(driver);
     }
 
@@ -179,10 +202,15 @@ public class DepoTransferInPage extends BasePage {
         return new DepoTransferInPage(driver);
     }
 
-    public DepoTransferInPage chooseNrd() throws InterruptedException {
-        Thread.sleep(1000);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(nrd));
-        actions.moveToElement(nrd).click().build().perform();
+    public DepoTransferInPage chooseNrd() {
+        try {
+            Thread.sleep(1000);
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(nrd));
+            actions.moveToElement(nrd).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new DepoTransferInPage(driver);
     }
 

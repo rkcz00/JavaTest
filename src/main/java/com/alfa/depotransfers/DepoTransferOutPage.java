@@ -60,10 +60,14 @@ public class DepoTransferOutPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'notification_status_ok')]")
     private WebElement successNotify;
 
-    public DepoTransferOutPage selectFirstPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.visibilityOf(placeHolder));
-        Thread.sleep(2000);
-        actions.moveToElement(placeHolder).click().build().perform();
+    public DepoTransferOutPage selectFirstPlaceHolder() {
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOf(placeHolder));
+            Thread.sleep(2000);
+            actions.moveToElement(placeHolder).click().build().perform();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new DepoTransferOutPage(driver);
     }
 
@@ -73,24 +77,37 @@ public class DepoTransferOutPage extends BasePage {
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage nextButtonClick() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
-        Thread.sleep(1000);
-        actions.moveToElement(nextButton).click().build().perform();
+    public DepoTransferOutPage nextButtonClick() {
+        try {
+            webDriverWait.until(ExpectedConditions.visibilityOf(nextButton));
+            Thread.sleep(1000);
+            actions.moveToElement(nextButton).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage selectSecondPlaceHolder() throws InterruptedException {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
-        Thread.sleep(1000);
-        actions.moveToElement(choosePlaceHolder).click().build().perform();
+    public DepoTransferOutPage selectSecondPlaceHolder() {
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(choosePlaceHolder));
+            Thread.sleep(1000);
+            actions.moveToElement(choosePlaceHolder).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         return new DepoTransferOutPage(driver);
     }
 
-    public DepoTransferOutPage chooseNrd() throws InterruptedException {
-        Thread.sleep(1000);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(nrd));
-        actions.moveToElement(nrd).click().build().perform();
+    public DepoTransferOutPage chooseNrd() {
+        try {
+            Thread.sleep(1000);
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(nrd));
+            actions.moveToElement(nrd).click().build().perform();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         return new DepoTransferOutPage(driver);
     }
 
